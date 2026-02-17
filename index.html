@@ -84,7 +84,7 @@
               <i class="fas fa-gamepad"></i> Top 3 Game Jam
             </span>
             <span class="achievement-badge bg-success text-white">
-              <i class="fas fa-star"></i> Top Achiever 2025
+              <i class="fas fa-star"></i> DEPI Freelance Top Achiever 2025
             </span>
           </div>
 
@@ -99,11 +99,11 @@
           </div>
 
           <!-- CTA Buttons -->
-          <div class="social-icons mb-4">
-            <a href="https://github.com/Sian1902" target="_blank" class="btn btn-light btn-lg me-3">
+          <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+            <a href="https://github.com/Sian1902" target="_blank" class="btn btn-light btn-lg">
               <i class="fab fa-github me-2"></i> GitHub
             </a>
-            <a href="https://www.linkedin.com/in/ahmed--haitham" target="_blank" class="btn btn-primary btn-lg me-3">
+            <a href="https://www.linkedin.com/in/ahmed--haitham" target="_blank" class="btn btn-primary btn-lg">
               <i class="fab fa-linkedin me-2"></i> LinkedIn
             </a>
             <a href="contact.html" class="btn btn-success btn-lg">
@@ -384,11 +384,11 @@
         <div class="col-lg-8 mx-auto">
           <h4 class="mb-4">Let's Build Something Amazing Together</h4>
           <p class="mb-4">I'm always open to discussing new opportunities and interesting projects.</p>
-          <div class="social-icons mb-4">
-            <a href="https://github.com/Sian1902" target="_blank" class="btn btn-outline-light btn-lg me-3">
+          <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+            <a href="https://github.com/Sian1902" target="_blank" class="btn btn-outline-light btn-lg">
               <i class="fab fa-github"></i> GitHub
             </a>
-            <a href="https://www.linkedin.com/in/ahmed--haitham" target="_blank" class="btn btn-outline-light btn-lg me-3">
+            <a href="https://www.linkedin.com/in/ahmed--haitham" target="_blank" class="btn btn-outline-light btn-lg">
               <i class="fab fa-linkedin"></i> LinkedIn
             </a>
             <a href="contact.html" class="btn btn-success btn-lg">
@@ -417,48 +417,48 @@
       }, 300);
     });
 
-    // Typewriter Effect
-    class TypeWriter {
-      constructor(txtElement, words, wait = 3000) {
-        this.txtElement = txtElement;
-        this.words = words;
-        this.txt = '';
-        this.wordIndex = 0;
-        this.wait = parseInt(wait, 10);
-        this.type();
-        this.isDeleting = false;
-      }
-
-      type() {
-        const current = this.wordIndex % this.words.length;
-        const fullTxt = this.words[current];
-
-        if (this.isDeleting) {
-          this.txt = fullTxt.substring(0, this.txt.length - 1);
-        } else {
-          this.txt = fullTxt.substring(0, this.txt.length + 1);
-        }
-
-        this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
-
-        let typeSpeed = 100;
-
-        if (this.isDeleting) {
-          typeSpeed /= 2;
-        }
-
-        if (!this.isDeleting && this.txt === fullTxt) {
-          typeSpeed = this.wait;
-          this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === '') {
-          this.isDeleting = false;
-          this.wordIndex++;
-          typeSpeed = 500;
-        }
-
-        setTimeout(() => this.type(), typeSpeed);
-      }
+  class TypeWriter {
+    constructor(txtElement, words, wait = 4000) {
+      this.txtElement = txtElement;
+      this.words = words;
+      this.txt = '';
+      this.wordIndex = 0;
+      this.wait = parseInt(wait, 10);
+      this.type();
+      this.isDeleting = false;
     }
+
+    type() {
+      const current = this.wordIndex % this.words.length;
+      const fullTxt = this.words[current];
+
+      if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
+
+      this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+      let typeSpeed = 200; // was 100 → slower typing
+
+      if (this.isDeleting) {
+        typeSpeed /= 2;
+      }
+
+      if (!this.isDeleting && this.txt === fullTxt) {
+        typeSpeed = 2000;
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.wordIndex++;
+        typeSpeed = 800; // was 500 → slower before next word
+      }
+
+      setTimeout(() => this.type(), typeSpeed);
+    }
+  }
+
 
     // Initialize TypeWriter
     document.addEventListener('DOMContentLoaded', function() {
