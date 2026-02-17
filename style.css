@@ -772,6 +772,22 @@ footer .btn-outline-light:hover {
   .display-3 { font-size: 2.4rem !important; }
   .profile-image { width: 150px; height: 150px; }
   .btn-lg { padding: .75rem 1.6rem; font-size: .95rem; }
+
+  /* Experience card header: let date badge drop below title on narrow screens */
+  .experience-card .d-flex.justify-content-between {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 8px;
+  }
+  .experience-card .badge.bg-info,
+  .experience-card .badge.bg-success,
+  .experience-card .badge.bg-warning,
+  .experience-card .badge.bg-primary {
+    align-self: flex-start;
+  }
+
+  /* Gallery image height smaller on mobile */
+  .gallery-img-wrap { height: 200px; }
 }
 
 @media (max-width: 576px) {
