@@ -735,6 +735,34 @@ footer .btn-outline-light:hover {
 .card.bg-gradient .bg-white p { color: #fff !important; }
 
 /* ============================================================
+   APP GALLERY
+   ============================================================ */
+.gallery-img-wrap {
+  width: 100%;
+  height: 280px;          /* uniform height for all cards */
+  overflow: hidden;
+  background: var(--clr-surface-2);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* crop to fill, never stretch */
+  object-position: top;    /* show the top of portrait screenshots */
+  display: block;
+  transition: transform .4s var(--ease-out);
+}
+
+.card:hover .gallery-img {
+  transform: scale(1.04);  /* subtle zoom on hover */
+}
+
+[data-theme="dark"] .gallery-img-wrap {
+  background: var(--clr-surface-alt);
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
@@ -752,4 +780,458 @@ footer .btn-outline-light:hover {
   .display-3     { font-size: 2rem !important; }
   .lead          { font-size: .97rem; }
   .skill-badge   { font-size: .78rem; padding: 5px 11px; }
+}
+
+/* ============================================================
+   DARK MODE
+   Activated by: [data-theme="dark"] on <html>
+   Respects prefers-color-scheme as default, user toggle wins.
+   ============================================================ */
+
+/* ---------- Dark token overrides ---------- */
+[data-theme="dark"] {
+  /* Neutrals flip */
+  --clr-text:        #f1f5f9;   /* slate-100  */
+  --clr-text-muted:  #94a3b8;   /* slate-400  */
+  --clr-border:      #334155;   /* slate-700  */
+  --clr-surface:     #0f172a;   /* slate-900  */
+  --clr-surface-alt: #1e293b;   /* slate-800  */
+  --clr-surface-2:   #162032;   /* between 900/800 */
+
+  /* Shadows deepen */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.4);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.5);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.6);
+
+  /* Lighter primaries for dark bg readability */
+  --clr-primary:     #60a5fa;   /* blue-400   */
+  --clr-primary-dk:  #3b82f6;   /* blue-500   */
+  --clr-primary-lt:  #1e3a5f;
+
+  --clr-success:     #4ade80;   /* green-400  */
+  --clr-success-lt:  #052e16;
+
+  --clr-warning:     #fbbf24;   /* amber-400  */
+  --clr-warning-bg:  #f59e0b;
+  --clr-warning-lt:  #2d1a00;
+
+  --clr-info:        #38bdf8;   /* sky-400    */
+  --clr-info-bg:     #0ea5e9;
+  --clr-info-lt:     #0c2233;
+
+  --clr-purple:      #a78bfa;   /* violet-400 */
+}
+
+/* ---------- Base dark body ---------- */
+[data-theme="dark"] body {
+  background: var(--clr-surface);
+  color: var(--clr-text);
+}
+
+/* ---------- Scrollbar ---------- */
+[data-theme="dark"] ::-webkit-scrollbar-track { background: #1e293b; }
+
+/* ---------- Navbar toggle button ---------- */
+#theme-toggle {
+  background: none;
+  border: 1.5px solid rgba(255,255,255,.18);
+  border-radius: 50px;
+  color: #94a3b8;
+  padding: 5px 12px;
+  font-size: .82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background .25s, color .25s, border-color .25s;
+  margin-left: 12px;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+}
+#theme-toggle:hover {
+  background: rgba(255,255,255,.1);
+  color: #f1f5f9;
+  border-color: rgba(255,255,255,.35);
+}
+#theme-toggle .icon-sun  { display: none; }
+#theme-toggle .icon-moon { display: inline; }
+[data-theme="dark"] #theme-toggle .icon-sun  { display: inline; }
+[data-theme="dark"] #theme-toggle .icon-moon { display: none; }
+
+/* ---------- Cards ---------- */
+[data-theme="dark"] .card {
+  background: var(--clr-surface-alt) !important;
+  border-color: var(--clr-border) !important;
+  box-shadow: var(--shadow-sm);
+}
+[data-theme="dark"] .card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+[data-theme="dark"] .highlight-card {
+  background: linear-gradient(135deg, #1e293b 0%, #1e3155 100%) !important;
+}
+
+[data-theme="dark"] .card-text,
+[data-theme="dark"] .card-body p,
+[data-theme="dark"] .card-body li {
+  color: var(--clr-text-muted);
+}
+
+/* Base card headings → light */
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .card-body h4,
+[data-theme="dark"] .card-body h5,
+[data-theme="dark"] .card-body h6,
+[data-theme="dark"] .card-body strong {
+  color: var(--clr-text) !important;
+}
+
+/* Coloured card subtitles — use lighter tints so they're vivid on dark cards */
+[data-theme="dark"] .card-body .text-primary,
+[data-theme="dark"] .card-title.text-primary,
+[data-theme="dark"] .card-body h4.text-primary,
+[data-theme="dark"] .card-body h5.text-primary {
+  color: #93c5fd !important;   /* blue-300  */
+}
+[data-theme="dark"] .card-body .text-success,
+[data-theme="dark"] .card-title.text-success,
+[data-theme="dark"] .card-body h4.text-success,
+[data-theme="dark"] .card-body h5.text-success {
+  color: #86efac !important;   /* green-300 */
+}
+[data-theme="dark"] .card-body .text-info,
+[data-theme="dark"] .card-title.text-info,
+[data-theme="dark"] .card-body h4.text-info,
+[data-theme="dark"] .card-body h5.text-info {
+  color: #7dd3fc !important;   /* sky-300   */
+}
+[data-theme="dark"] .card-body .text-warning,
+[data-theme="dark"] .card-title.text-warning,
+[data-theme="dark"] .card-body h4.text-warning,
+[data-theme="dark"] .card-body h5.text-warning {
+  color: #fde68a !important;   /* amber-200 */
+}
+[data-theme="dark"] .card-body .text-danger,
+[data-theme="dark"] .card-title.text-danger,
+[data-theme="dark"] .card-body h4.text-danger,
+[data-theme="dark"] .card-body h5.text-danger {
+  color: #fca5a5 !important;   /* red-300   */
+}
+/* Coloured icons inside card titles */
+[data-theme="dark"] .card-body .card-title i.text-primary  { color: #93c5fd !important; }
+[data-theme="dark"] .card-body .card-title i.text-success  { color: #86efac !important; }
+[data-theme="dark"] .card-body .card-title i.text-info     { color: #7dd3fc !important; }
+[data-theme="dark"] .card-body .card-title i.text-warning  { color: #fde68a !important; }
+[data-theme="dark"] .card-body .card-title i.text-danger   { color: #fca5a5 !important; }
+/* Stat card display numbers */
+[data-theme="dark"] .card .text-primary.display-4 { color: #93c5fd !important; }
+[data-theme="dark"] .card .text-success.display-4 { color: #86efac !important; }
+[data-theme="dark"] .card .text-info.display-4    { color: #7dd3fc !important; }
+[data-theme="dark"] .card .text-warning.display-4 { color: #fde68a !important; }
+/* Stat card icons */
+[data-theme="dark"] .card i.text-primary { color: #93c5fd !important; }
+[data-theme="dark"] .card i.text-success { color: #86efac !important; }
+[data-theme="dark"] .card i.text-info    { color: #7dd3fc !important; }
+[data-theme="dark"] .card i.text-warning { color: #fde68a !important; }
+/* bg-white sub-panels inside ANY coloured card (bg-gradient, bg-info, bg-success, etc.)
+   render as solid dark panels so numbers/labels are always legible */
+[data-theme="dark"] .card.bg-gradient .bg-white,
+[data-theme="dark"] .card.bg-info     .bg-white,
+[data-theme="dark"] .card.bg-success  .bg-white,
+[data-theme="dark"] .card.bg-primary  .bg-white,
+[data-theme="dark"] .card.bg-warning  .bg-white,
+[data-theme="dark"] .bg-gradient .bg-white {
+  background: rgba(0,0,0,.30) !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+}
+/* Force all text inside those panels to white — override any text-* color class */
+[data-theme="dark"] .card.bg-gradient .bg-white,
+[data-theme="dark"] .card.bg-gradient .bg-white *,
+[data-theme="dark"] .card.bg-info     .bg-white,
+[data-theme="dark"] .card.bg-info     .bg-white *,
+[data-theme="dark"] .card.bg-success  .bg-white,
+[data-theme="dark"] .card.bg-success  .bg-white *,
+[data-theme="dark"] .card.bg-primary  .bg-white,
+[data-theme="dark"] .card.bg-primary  .bg-white *,
+[data-theme="dark"] .card.bg-warning  .bg-white,
+[data-theme="dark"] .card.bg-warning  .bg-white *,
+[data-theme="dark"] .bg-gradient .bg-white,
+[data-theme="dark"] .bg-gradient .bg-white * {
+  color: #ffffff !important;
+}
+
+/* ---------- bg-light sections ---------- */
+[data-theme="dark"] .bg-light {
+  background: var(--clr-surface-2) !important;
+}
+
+/* ---------- Section titles ---------- */
+[data-theme="dark"] .section-title { color: var(--clr-text); }
+
+/* ---------- Stat cards ---------- */
+[data-theme="dark"] .stat-card {
+  background: var(--clr-surface-alt);
+  border-color: var(--clr-border);
+}
+[data-theme="dark"] .stat-card p { color: var(--clr-text-muted); }
+
+/* ---------- Experience / Project cards ---------- */
+[data-theme="dark"] .experience-card {
+  background: var(--clr-surface-alt) !important;
+  border-left-color: var(--clr-primary) !important;
+}
+
+/* ---------- Contact inputs ---------- */
+[data-theme="dark"] .contact-input {
+  background: var(--clr-surface-alt);
+  border-color: var(--clr-border);
+  color: var(--clr-text);
+}
+[data-theme="dark"] .contact-input::placeholder { color: #475569; }
+[data-theme="dark"] .contact-input:focus {
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 0 3px rgba(96,165,250,.2);
+}
+
+/* ---------- Alerts ---------- */
+[data-theme="dark"] .alert-warning {
+  background: #2d1a00 !important;
+  border-color: #78350f !important;
+  color: #fde68a !important;
+}
+[data-theme="dark"] .alert-warning strong { color: #fbbf24 !important; }
+
+[data-theme="dark"] .alert-success {
+  background: #052e16 !important;
+  border-color: #166534 !important;
+  color: #86efac !important;
+}
+
+[data-theme="dark"] .alert-info {
+  background: #0c2233 !important;
+  border-color: #075985 !important;
+  color: #7dd3fc !important;
+}
+[data-theme="dark"] .alert-info strong { color: #38bdf8 !important; }
+
+/* ---------- Page-colour headers – keep them, just darken slightly ---------- */
+[data-theme="dark"] .bg-primary {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%) !important;
+}
+[data-theme="dark"] .bg-success {
+  background: linear-gradient(135deg, #15803d 0%, #14532d 100%) !important;
+}
+[data-theme="dark"] .bg-info {
+  background: linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%) !important;
+}
+[data-theme="dark"] .bg-warning {
+  background: linear-gradient(135deg, #78350f 0%, #451a03 100%) !important;
+}
+[data-theme="dark"] .bg-secondary {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
+}
+
+/* ---------- Gradient card (bg-gradient) ---------- */
+[data-theme="dark"] .bg-gradient {
+  background: linear-gradient(135deg, #1d4ed8 0%, #5b21b6 100%) !important;
+}
+[data-theme="dark"] .bg-gradient .bg-white,
+[data-theme="dark"] .card.bg-gradient .bg-white {
+  background: rgba(255,255,255,.1) !important;
+}
+
+/* ---------- Achievement / skill badges on headers ---------- */
+[data-theme="dark"] .bg-primary .skill-badge.bg-light,
+[data-theme="dark"] .bg-success .skill-badge.bg-light,
+[data-theme="dark"] .bg-info    .skill-badge.bg-light,
+[data-theme="dark"] .bg-warning .skill-badge.bg-light,
+[data-theme="dark"] .bg-secondary .skill-badge.bg-light {
+  background: rgba(255,255,255,.15) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,.3);
+}
+
+/* ---------- Inline badges on dark bg (keep readable) ---------- */
+[data-theme="dark"] .badge.bg-secondary,
+[data-theme="dark"] .skill-badge.bg-secondary {
+  background: #334155 !important;
+  color: #cbd5e1 !important;
+}
+[data-theme="dark"] .badge.bg-dark,
+[data-theme="dark"] .skill-badge.bg-dark {
+  background: #1e293b !important;
+  color: #e2e8f0 !important;
+  border: 1px solid #334155;
+}
+[data-theme="dark"] .badge.bg-light,
+[data-theme="dark"] .skill-badge.bg-light {
+  background: #334155 !important;
+  color: #f1f5f9 !important;
+}
+[data-theme="dark"] .badge.bg-info { color: #fff !important; }
+
+/* ---------- Timeline ---------- */
+[data-theme="dark"] .timeline-item { border-left-color: var(--clr-primary); }
+[data-theme="dark"] .timeline-item::before {
+  background: var(--clr-primary);
+  border-color: var(--clr-surface);
+  box-shadow: 0 0 0 3px var(--clr-primary-lt);
+}
+
+[data-theme="dark"] .timeline-date.bg-success { background: #15803d !important; }
+[data-theme="dark"] .timeline-date.bg-info    { background: #0369a1 !important; }
+[data-theme="dark"] .timeline-date.bg-warning {
+  background: #b45309 !important;
+  color: #fff !important;
+}
+
+/* ---------- Footer ---------- */
+[data-theme="dark"] footer {
+  background: #070e1a !important;
+  border-top-color: #1e293b;
+}
+
+/* ---------- Page loader ---------- */
+[data-theme="dark"] .page-loader { background: #0f172a; }
+
+/* ---------- Hero section (index) ---------- */
+[data-theme="dark"] .hero-section {
+  background: linear-gradient(145deg, #060d1a 0%, #0f2240 60%, #0a1f3c 100%);
+}
+
+/* ---------- Buttons in dark mode ---------- */
+[data-theme="dark"] .btn-outline-primary {
+  color: var(--clr-primary) !important;
+  border-color: var(--clr-primary) !important;
+}
+[data-theme="dark"] .btn-outline-primary:hover {
+  background: var(--clr-primary) !important;
+  color: #fff !important;
+}
+[data-theme="dark"] .btn-outline-success {
+  color: var(--clr-success) !important;
+  border-color: var(--clr-success) !important;
+}
+[data-theme="dark"] .btn-outline-success:hover {
+  background: var(--clr-success) !important;
+  color: #fff !important;
+}
+[data-theme="dark"] .btn-outline-info {
+  color: var(--clr-info) !important;
+  border-color: var(--clr-info) !important;
+}
+[data-theme="dark"] .btn-outline-info:hover {
+  background: var(--clr-info) !important;
+  color: #fff !important;
+}
+[data-theme="dark"] .btn-outline-warning {
+  color: var(--clr-warning) !important;
+  border-color: var(--clr-warning) !important;
+}
+[data-theme="dark"] .btn-outline-warning:hover {
+  background: var(--clr-warning) !important;
+  color: #1c1400 !important;
+}
+[data-theme="dark"] .btn-light {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f1f5f9 !important;
+}
+[data-theme="dark"] .btn-light:hover {
+  background: #334155 !important;
+}
+
+/* ---------- Icon circles ---------- */
+[data-theme="dark"] .icon-circle.bg-primary { background: var(--clr-primary-lt) !important; color: var(--clr-primary) !important; }
+[data-theme="dark"] .icon-circle.bg-success { background: var(--clr-success-lt) !important; color: var(--clr-success) !important; }
+[data-theme="dark"] .icon-circle.bg-dark    { background: #1e293b !important; color: #e2e8f0 !important; }
+[data-theme="dark"] .icon-circle.bg-danger  { background: #450a0a !important; color: #fca5a5 !important; }
+
+/* ---------- Award icon circles ---------- */
+[data-theme="dark"] .award-icon.bg-success { background: #15803d !important; }
+[data-theme="dark"] .award-icon.bg-info    { background: #0369a1 !important; }
+[data-theme="dark"] .award-icon.bg-warning { background: #b45309 !important; }
+
+/* ---------- Text colour utilities ---------- */
+[data-theme="dark"] .text-muted   { color: var(--clr-text-muted) !important; }
+/* text-dark: lighten for dark surfaces, but NOT on coloured badges/pills
+   (those need dark text on their coloured background) */
+[data-theme="dark"] .text-dark    { color: #e2e8f0 !important; }
+[data-theme="dark"] .badge.text-dark,
+[data-theme="dark"] .skill-badge.text-dark { color: #1c1400 !important; }
+[data-theme="dark"] .text-primary { color: #93c5fd !important; }  /* blue-300  */
+[data-theme="dark"] .text-success { color: #86efac !important; }  /* green-300 */
+[data-theme="dark"] .text-info    { color: #7dd3fc !important; }  /* sky-300   */
+[data-theme="dark"] .text-warning { color: #fde68a !important; }  /* amber-200 */
+[data-theme="dark"] .text-danger  { color: #fca5a5 !important; }  /* red-300   */
+
+/* ---------- Progress bar ---------- */
+[data-theme="dark"] .progress { background: #334155; }
+
+/* ---------- App gallery placeholder images ---------- */
+[data-theme="dark"] .card-img-top { opacity: .85; filter: brightness(.9); }
+
+/* ---------- fw-bold company names & subtitles inside cards ---------- */
+[data-theme="dark"] .card-body .fw-bold,
+[data-theme="dark"] .card-body strong,
+[data-theme="dark"] .experience-card .fw-bold {
+  color: var(--clr-text) !important;   /* bright white-ish */
+}
+
+/* ---------- small / text-muted inside experience cards ---------- */
+[data-theme="dark"] .card-body small.text-muted,
+[data-theme="dark"] .experience-card .text-muted,
+[data-theme="dark"] .project-card .text-muted {
+  color: #64748b !important;   /* slate-500 – visible but secondary */
+}
+
+/* ---------- skill-badge bg-light text-dark (page-header pills) ---------- */
+/* bg-light on dark bg turns slate, but text-dark becomes near-white in our override,
+   so these are actually ok now — but the bg-light pills INSIDE white-bg skill cards
+   (the bg-light section panels) need explicit handling */
+[data-theme="dark"] .skill-badge.bg-light {
+  background: #334155 !important;   /* slate-700 */
+  color: #e2e8f0 !important;        /* slate-200 */
+  border: 1px solid #475569;
+}
+[data-theme="dark"] .skill-badge.bg-light.text-dark {
+  color: #e2e8f0 !important;
+}
+
+/* ---------- badge/skill-badge bg-warning text-dark ----------
+   On amber background, text-dark should stay DARK (not get lightened).
+   Our global [data-theme="dark"] .text-dark rule turns it light, breaking this. */
+[data-theme="dark"] .badge.bg-warning,
+[data-theme="dark"] .skill-badge.bg-warning {
+  background: var(--clr-warning-bg) !important;
+  color: #1c1400 !important;   /* always dark on amber */
+}
+
+/* ---------- badge bg-light text-dark (non-skill-badge) ---------- */
+[data-theme="dark"] .badge.bg-light {
+  background: #334155 !important;
+  color: #e2e8f0 !important;
+}
+[data-theme="dark"] .badge.bg-light.text-dark {
+  color: #e2e8f0 !important;
+}
+
+/* ---------- smooth theme transition ---------- */
+*, *::before, *::after {
+  transition:
+    background-color .25s ease,
+    border-color .25s ease,
+    color .2s ease;
+}
+/* But don't slow down hover transforms */
+.card, .btn, .skill-badge, .nav-link, #theme-toggle, .back-to-top {
+  transition:
+    background-color .25s ease,
+    border-color .25s ease,
+    color .2s ease,
+    transform .3s var(--ease-out),
+    box-shadow .3s ease,
+    opacity .3s ease;
 }

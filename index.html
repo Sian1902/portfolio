@@ -8,6 +8,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="style.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/code.png">
+  <!-- Dark mode: apply before render to avoid flash -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 <body>
   <!-- Page Loader -->
@@ -32,6 +42,13 @@
           <li class="nav-item"><a class="nav-link" href="gamedev.html">Game Dev</a></li>
           <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+          <li class="nav-item d-flex align-items-center ms-2">
+            <button id="theme-toggle" aria-label="Toggle dark mode">
+              <span class="icon-moon">🌙</span>
+              <span class="icon-sun">☀️</span>
+            </button>
+          </li>
         </ul>
       </div>
     </div>
@@ -139,7 +156,7 @@
             <div class="card-body p-5">
               <h2 class="text-center mb-4 section-title">About Me</h2>
               <p class="lead text-center mb-4">Software Developer | Java & Android Enthusiast | Problem Solver</p>
-              <p class="mb-4">I'm a software developer with hands-on experience building scalable backend systems and Android applications using Java, Spring Boot, Kotlin, and Firebase. I enjoy turning complex ideas into simple, usable software — whether that means crafting secure REST APIs, optimizing mobile user experiences, or managing real-time data.</p>
+              <p class="mb-4">I'm a software developer with hands-on experience building scalable backend systems and Android applications using Java, Spring Boot, Kotlin, and Firebase. I enjoy turning complex ideas into simple, usable software â€” whether that means crafting secure REST APIs, optimizing mobile user experiences, or managing real-time data.</p>
               
               <div class="row mt-4">
                 <div class="col-md-6">
@@ -515,6 +532,33 @@
 
       window.addEventListener('scroll', animateOnScroll);
       animateOnScroll(); // Initial check
+    });
+
+    // ── Dark Mode ─────────────────────────────────────────────
+    (function() {
+      // Apply saved preference immediately to avoid flash
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const html = document.documentElement;
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      });
+    }
+
+    // Sync with OS preference changes (when no manual override)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem('theme')) {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      }
     });
   </script>
 </body>
