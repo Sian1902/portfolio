@@ -3,18 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmed Haitham | Software Developer</title>
+  <title>Ahmed Haitham Elsersy | Software Engineer & Mobile Developer</title>
+  <meta name="description" content="Portfolio of Ahmed Haitham Elsersy - Software Engineer, Android Developer (Kotlin, Jetpack Compose, KMP), Backend Engineer (Java, Spring Boot), and Game Developer (Unity, C#).">
+  
+  <!-- CSS Frameworks & Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="style.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/code.png">
-  <!-- Dark mode: apply before render to avoid flash -->
+  
+  <!-- Prevent dark mode flash -->
   <script>
     (function() {
       var saved = localStorage.getItem('theme');
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (saved === 'dark' || (!saved && prefersDark)) {
         document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
   </script>
@@ -26,27 +32,36 @@
   </div>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">
-        <i class="fas fa-code me-2"></i>Ahmed Haitham
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-terminal text-primary me-1"></i> Ahmed Haitham
+        <span class="brand-badge">DEV</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="mobile.html">Mobile & KMP</a></li>
           <li class="nav-item"><a class="nav-link" href="backend.html">Backend</a></li>
-          <li class="nav-item"><a class="nav-link" href="mobile.html">Mobile</a></li>
           <li class="nav-item"><a class="nav-link" href="gamedev.html">Game Dev</a></li>
           <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          
+          <!-- Direct CV Download Action -->
+          <li class="nav-item">
+            <a class="btn-nav-cv" href="Ahmed_Haitham_CV.pdf" target="_blank" download="Ahmed_Haitham_CV.pdf">
+              <i class="fas fa-file-pdf text-danger"></i> Resume
+            </a>
+          </li>
 
-          <li class="nav-item d-flex align-items-center ms-2">
-            <button id="theme-toggle" aria-label="Toggle dark mode">
-              <span class="icon-moon">🌙</span>
-              <span class="icon-sun">☀️</span>
+          <!-- Dark/Light Theme Toggle with Icon & Label -->
+          <li class="nav-item">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark and light mode">
+              <span class="theme-icon">🌙</span>
+              <span class="theme-label">Dark</span>
             </button>
           </li>
         </ul>
@@ -54,132 +69,210 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section text-center py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-8 mx-auto fade-in">
-          <div class="profile-image">
-            <img src="https://ui-avatars.com/api/?name=Ahmed+Haitham&size=200&background=0d6efd&color=fff&bold=true" 
-                 class="img-fluid rounded-circle"
-                 alt="Ahmed Haitham Profile">
-          </div>
-          <h1 class="display-3 fw-bold mb-3">Ahmed Haitham <span class="gradient-text">Elsersy</span></h1>
-          <p class="lead text-light mb-4">Game Developer @ Mega Cat Studios | ITI Native Mobile Development Trainee</p>
+  <!-- Hero Section (Balanced 2-Column Layout) -->
+  <section class="hero-section">
+    <div class="hero-orb-1"></div>
+    <div class="hero-orb-2"></div>
+    
+    <div class="container position-relative" style="z-index: 2;">
+      <div class="row align-items-center g-5">
+        
+        <!-- Left Content Column -->
+        <div class="col-lg-7 text-lg-start text-center">
           
-          <!-- Typewriter -->
-          <div class="typewriter mb-4">
-            <h3 class="h4">
-              <span class="typed-text" data-words='["Software Developer", "Backend Engineer", "Mobile Developer", "Game Developer", "Problem Solver"]'></span>
-              <span class="cursor">&nbsp;</span>
-            </h3>
+          <!-- Status Pill -->
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            Available for Opportunities • Cairo, Egypt
           </div>
 
-          <!-- Achievement Badges -->
-          <div class="achievement-badges mb-4">
-            <span class="achievement-badge bg-warning text-dark">
-              <i class="fas fa-trophy"></i> 1st Place DEPI 2024
+          <!-- Name & Main Title -->
+          <h1 class="display-3 fw-bold mb-2">
+            Ahmed Haitham <span class="gradient-text">Elsersy</span>
+          </h1>
+          <p class="hero-lead lead mb-3">
+            Software Engineer | Android Developer & Game Developer
+          </p>
+
+          <!-- Typewriter Effect -->
+          <div class="typewriter-wrapper">
+            <span class="typed-text" data-words='["Android Native & Compose Multiplatform (KMP)", "Game Developer @ Mega Cat Studios", "Backend Engineer (Java & Spring Boot)", "MVI / MVVM & Clean Architecture Specialist", "DEPI 1st Place & Top Achiever Honoree"]'></span>
+            <span class="cursor"></span>
+          </div>
+
+          <!-- Key CV Achievements Badges -->
+          <div class="d-flex flex-wrap justify-content-lg-start justify-content-center gap-2 mb-4">
+            <span class="achievement-badge badge-emerald">
+              <i class="fas fa-trophy"></i> 1st Place Mobile Track (DEPI 2024)
             </span>
-            <span class="achievement-badge bg-info text-white">
-              <i class="fas fa-gamepad"></i> Top 3 Game Jam
+            <span class="achievement-badge badge-gold">
+              <i class="fas fa-medal"></i> Top Achiever Honored by Minister (DEPI 2025)
             </span>
-            <span class="achievement-badge bg-success text-white">
-              <i class="fas fa-star"></i> DEPI Freelance Top Achiever 2025
+            <span class="achievement-badge badge-indigo">
+              <i class="fas fa-gamepad"></i> Game Dev @ Mega Cat Studios
+            </span>
+            <span class="achievement-badge badge-cyan">
+              <i class="fas fa-graduation-cap"></i> ITI Native Mobile Diploma
             </span>
           </div>
 
-          <!-- Skill Cloud -->
-          <div class="skill-cloud mb-4">
-            <span class="skill-badge bg-primary">Java/Spring Boot</span>
-            <span class="skill-badge bg-success">Kotlin/Android</span>
-            <span class="skill-badge bg-info">Unity/C#</span>
-            <span class="skill-badge bg-warning text-dark">Firebase</span>
-            <span class="skill-badge bg-danger">Game Dev</span>
-            <span class="skill-badge bg-secondary">SQL</span>
+          <!-- Core Tech Skills Pill Cloud -->
+          <div class="d-flex flex-wrap justify-content-lg-start justify-content-center gap-2 mb-4">
+            <span class="tech-pill tech-pill-green"><i class="fab fa-android me-1"></i>Kotlin & Jetpack Compose</span>
+            <span class="tech-pill tech-pill-green"><i class="fas fa-layer-group me-1"></i>Compose Multiplatform (KMP)</span>
+            <span class="tech-pill tech-pill-blue"><i class="fab fa-java me-1"></i>Java & Spring Boot</span>
+            <span class="tech-pill tech-pill-purple"><i class="fab fa-unity me-1"></i>Unity & C#</span>
+            <span class="tech-pill tech-pill-blue"><i class="fas fa-server me-1"></i>REST APIs & Microservices</span>
+            <span class="tech-pill tech-pill-amber"><i class="fas fa-robot me-1"></i>Agentic AI & NLP</span>
           </div>
 
-          <!-- CTA Buttons -->
-          <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
-            <a href="https://github.com/Sian1902" target="_blank" class="btn btn-light btn-lg">
-              <i class="fab fa-github me-2"></i> GitHub
+          <!-- Action CTA Buttons -->
+          <div class="d-flex flex-wrap justify-content-lg-start justify-content-center gap-3 pt-2">
+            <a href="Ahmed_Haitham_CV.pdf" target="_blank" download="Ahmed_Haitham_CV.pdf" class="btn btn-gradient-cv btn-lg">
+              <i class="fas fa-download me-1"></i> Download CV (PDF)
             </a>
-            <a href="https://www.linkedin.com/in/ahmed--haitham" target="_blank" class="btn btn-primary btn-lg">
-              <i class="fab fa-linkedin me-2"></i> LinkedIn
+            <a href="https://github.com/Sian1902" target="_blank" rel="noopener noreferrer" class="btn btn-light-custom btn-lg">
+              <i class="fab fa-github me-1"></i> GitHub
             </a>
-            <a href="contact.html" class="btn btn-success btn-lg">
-              <i class="fas fa-paper-plane me-2"></i> Contact
+            <a href="https://www.linkedin.com/in/ahmed--haitham/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+              <i class="fab fa-linkedin me-1"></i> LinkedIn
             </a>
+            <a href="contact.html" class="btn btn-outline-custom btn-lg">
+              <i class="fas fa-paper-plane me-1"></i> Contact
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Profile Showcase Column (Balanced Framing) -->
+        <div class="col-lg-5 text-center d-flex justify-content-center align-items-center">
+          <div class="hero-profile-card">
+            
+            <!-- Top Floating Tag -->
+            <div class="floating-chip floating-chip-top">
+              <img src="images/MegaCat.jpg" alt="Mega Cat" style="width: 24px; height: 24px; border-radius: 6px;">
+              <span>Mega Cat Studios</span>
+            </div>
+
+            <!-- Profile Photo -->
+            <img src="images/Me_hero.jpg" alt="Ahmed Haitham Elsersy" class="hero-profile-img">
+
+            <!-- Bottom Floating Tag -->
+            <div class="floating-chip floating-chip-bottom">
+              <img src="images/iti.png" alt="ITI" style="width: 24px; height: 24px; border-radius: 6px; object-fit: contain;">
+              <span>ITI Native Mobile Track</span>
+            </div>
+
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Statistics -->
-  <section class="py-5 bg-light">
+  <!-- Statistics Metrics -->
+  <section class="py-5 bg-light-custom">
     <div class="container">
-      <div class="row text-center">
-        <div class="col-md-3 col-6 mb-4">
-          <div class="stat-card fade-in delay-1">
-            <h3 class="display-4 fw-bold text-primary">1+</h3>
-            <p class="text-muted">Years Experience</p>
+      <div class="row g-4 text-center">
+        <div class="col-lg-3 col-6">
+          <div class="stat-card">
+            <div class="stat-number text-primary">1+</div>
+            <p class="stat-label">Years Pro Experience</p>
           </div>
         </div>
-        <div class="col-md-3 col-6 mb-4">
-          <div class="stat-card fade-in delay-2">
-            <h3 class="display-4 fw-bold text-success">25+</h3>
-            <p class="text-muted">Projects Completed</p>
+        <div class="col-lg-3 col-6">
+          <div class="stat-card">
+            <div class="stat-number text-success">15+</div>
+            <p class="stat-label">Shipped Projects</p>
           </div>
         </div>
-        <div class="col-md-3 col-6 mb-4">
-          <div class="stat-card fade-in delay-3">
-            <h3 class="display-4 fw-bold text-info">3</h3>
-            <p class="text-muted">Awards Won</p>
+        <div class="col-lg-3 col-6">
+          <div class="stat-card">
+            <div class="stat-number text-warning">3</div>
+            <p class="stat-label">National Awards</p>
           </div>
         </div>
-        <div class="col-md-3 col-6 mb-4">
-          <div class="stat-card fade-in delay-4">
-            <h3 class="display-4 fw-bold text-warning">10+</h3>
-            <p class="text-muted">Technologies</p>
+        <div class="col-lg-3 col-6">
+          <div class="stat-card">
+            <div class="stat-number text-info">3.42</div>
+            <p class="stat-label">GPA (Honors, FCIS)</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Summary -->
+  <!-- About & Summary Section -->
   <section class="py-5">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="card shadow-lg border-0">
-            <div class="card-body p-5">
-              <h2 class="text-center mb-4 section-title">About Me</h2>
-              <p class="lead text-center mb-4">Software Developer | Java & Android Enthusiast | Problem Solver</p>
-              <p class="mb-4">I'm a software developer with hands-on experience building scalable backend systems and Android applications using Java, Spring Boot, Kotlin, and Firebase. I enjoy turning complex ideas into simple, usable software â€” whether that means crafting secure REST APIs, optimizing mobile user experiences, or managing real-time data.</p>
-              
-              <div class="row mt-4">
-                <div class="col-md-6">
-                  <h5 class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>What I Do Well:</h5>
-                  <ul class="list-unstyled">
-                    <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i>Build backend systems using Java EE, Spring Boot, JPA, and RESTful services</li>
-                    <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i>Develop Android apps with Kotlin, integrating APIs, sensors, and Firebase</li>
-                    <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i>Apply OOP, design patterns, and clean architecture</li>
-                    <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i>Work across full software development life cycle</li>
-                  </ul>
+        <div class="col-lg-11">
+          <div class="card p-4 p-md-5">
+            <div class="card-body">
+              <div class="text-center mb-4">
+                <div class="mb-2">
+                  <span class="hero-category-badge badge-backend-track">Professional Profile</span>
                 </div>
+                <h2 class="section-title section-title-center">About Me</h2>
+              </div>
+              
+              <p class="lead text-center mb-4 text-secondary" style="max-width: 900px; margin: 0 auto;">
+                Software Engineer passionate about designing clean, scalable, and maintainable software. Experienced in applying software engineering best practices, including OOP, SOLID principles, design patterns, and modern architectures (Clean Architecture, MVVM, MVI) to develop mobile applications, backend services, and gameplay systems using Kotlin, Java, Spring Boot, and Unity.
+              </p>
+
+              <div class="row g-4 mt-3">
                 <div class="col-md-6">
-                  <div class="card bg-light">
-                    <div class="card-body">
-                      <h6><i class="fas fa-graduation-cap text-primary me-2"></i>Education</h6>
-                      <p class="mb-0"><strong>Ain Shams University</strong><br>
-                      Bachelor of Computer Science class of 2025<br>
-                      GPA: 3.42<br>
-                      Graduation Project: <strong>Late Plate</strong> - Grade: A</p>
+                  <div class="card h-100 p-3 bg-light-custom border-0">
+                    <h5 class="fw-bold mb-3 text-primary">
+                      <i class="fas fa-check-circle me-2"></i>Core Engineering Strengths
+                    </h5>
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i><strong>Mobile Architecture:</strong> Android Native (Kotlin/Java), Jetpack Compose, KMP / Compose Multiplatform, MVI, MVVM, MVP, Room, Coroutines, Flow.</li>
+                      <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i><strong>Backend & Microservices:</strong> Java EE, Spring Boot, Spring Security, JWT, JPA/Hibernate, RESTful APIs, Relational DBs.</li>
+                      <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i><strong>Game Systems:</strong> Unity & C# gameplay programming, performance optimization, UI systems, VR/AR, and commercial production builds.</li>
+                      <li class="mb-0"><i class="fas fa-arrow-right text-primary me-2"></i><strong>Engineering Discipline:</strong> Design Patterns, SOLID, Data Structures & Algorithms, Git/GitHub, Agile workflows.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card h-100 p-3 bg-light-custom border-0">
+                    <h5 class="fw-bold mb-3 text-success">
+                      <i class="fas fa-graduation-cap me-2"></i>Education & Credentials
+                    </h5>
+                    
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                      <img src="images/iti.png" alt="ITI Logo" class="company-logo-img">
+                      <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-baseline">
+                          <strong>Information Technology Institute (ITI)</strong>
+                          <span class="badge bg-success">2025 - 2026</span>
+                        </div>
+                        <p class="text-secondary small mb-0">9-Month Professional Diploma, Mobile Applications Development (Native) Track — Smart Village Branch</p>
+                      </div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                      <img src="images/fcis_asu.jpg" alt="FCIS ASU Logo" class="company-logo-img">
+                      <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-baseline">
+                          <strong>Ain Shams University (FCIS)</strong>
+                          <span class="badge bg-primary">2021 - 2025</span>
+                        </div>
+                        <p class="text-secondary small mb-0">Bachelor of Computer Science | GPA: <strong>3.42 (B+) Honors</strong></p>
+                        <p class="small mb-0 text-success fw-bold"><i class="fas fa-star me-1"></i>Graduation Project: Late Plate (Grade: A)</p>
+                      </div>
+                    </div>
+
+                    <div class="p-2 rounded mt-2" style="background: rgba(2, 132, 199, 0.08); border-left: 3.5px solid var(--clr-primary);">
+                      <p class="small mb-0 text-secondary">
+                        <i class="fas fa-shield-alt text-primary me-1"></i><strong>Military Service:</strong> Currently serving under agreement between Ministry of Defense and ITI (completion by Dec 2026).
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -187,189 +280,547 @@
     </div>
   </section>
 
-  <!-- Expertise Areas -->
-  <section class="py-5 bg-light">
+  <!-- Featured Projects Section with Real Previews for EVERY Project -->
+  <section class="py-5 bg-light-custom">
     <div class="container">
-      <h2 class="text-center mb-5 section-title">Expertise Areas</h2>
+      <div class="text-center mb-5">
+        <div class="mb-2">
+          <span class="hero-category-badge badge-mobile-track">Engineering Portfolio</span>
+        </div>
+        <h2 class="section-title section-title-center">Featured Projects</h2>
+        <p class="section-subtitle">A curated selection of high-impact mobile apps, backend systems, and gameplay programming</p>
+      </div>
+
       <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card h-100 text-center hover-card fade-in delay-1">
-            <div class="card-body">
-              <i class="fas fa-server fa-4x text-primary mb-3"></i>
-              <h5 class="card-title">Backend Development</h5>
-              <p class="card-text text-muted">Building robust APIs and microservices with Java, Spring Boot, and RESTful architecture</p>
-              <div class="mt-3">
-                <span class="badge bg-primary me-1">Java</span>
-                <span class="badge bg-primary me-1">Spring Boot</span>
-                <span class="badge bg-primary me-1">REST API</span>
+        <!-- 1. Qafilah -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/qafilah_preview.png" alt="Qafilah App" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-ai">Agentic AI & MVI</span>
               </div>
-              <a href="backend.html" class="btn btn-outline-primary mt-3">Explore Backend</a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Qafilah - AI Mobile Commerce</h5>
+              <p class="text-secondary small mb-3">AI-powered mobile commerce platform with MVI architecture and an autonomous assistant for smart product tracking.</p>
+              
+              <ul class="project-features">
+                <li>Engineered with Kotlin, Jetpack Compose, GraphQL, and Firebase</li>
+                <li>Built with reactive MVI architecture ensuring robust state predictability</li>
+                <li>Integrated autonomous AI assistant for personalized item tracking & recommendations</li>
+              </ul>
+
+              <div class="mt-auto">
+                <div class="mb-3">
+                  <span class="tech-pill tech-pill-green">Kotlin</span>
+                  <span class="tech-pill tech-pill-green">Jetpack Compose</span>
+                  <span class="tech-pill tech-pill-purple">GraphQL</span>
+                  <span class="tech-pill tech-pill-amber">Agentic AI</span>
+                  <span class="tech-pill tech-pill-blue">Firebase</span>
+                </div>
+                <a href="https://github.com/Sian1902/Qafilah" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom w-100">
+                  <i class="fab fa-github me-1"></i> View Repository
+                </a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card h-100 text-center hover-card fade-in delay-2">
-            <div class="card-body">
-              <i class="fas fa-mobile-alt fa-4x text-success mb-3"></i>
-              <h5 class="card-title">Mobile Development</h5>
-              <p class="card-text text-muted">Creating native Android apps with Kotlin, Firebase, and modern architecture patterns</p>
-              <div class="mt-3">
-                <span class="badge bg-success me-1">Kotlin</span>
-                <span class="badge bg-success me-1">Android</span>
-                <span class="badge bg-success me-1">Firebase</span>
+
+        <!-- 2. Late Plate -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="LatePlate.png" alt="Late Plate App" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-feat">Grade: A (Grad Project)</span>
               </div>
-              <a href="mobile.html" class="btn btn-outline-success mt-3">Explore Mobile</a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Late Plate - AI Recipe Generator</h5>
+              <p class="text-secondary small mb-3">AI-powered recipe recommendation app leveraging fine-tuned NLP and deep learning models for intelligent cooking assistance.</p>
+              
+              <ul class="project-features">
+                <li>Fine-tuned GPT-2 and LLaMA 3.2 on RecipeNLG dataset with custom tokenization & LoRA</li>
+                <li>Integrated AI inference models via RESTful APIs into native Kotlin Android client</li>
+                <li>Structured with MVVM / ViewModel architecture for efficient state management</li>
+              </ul>
+
+              <div class="mt-auto">
+                <div class="mb-3">
+                  <span class="tech-pill tech-pill-green">Kotlin</span>
+                  <span class="tech-pill tech-pill-amber">LLaMA 3.2</span>
+                  <span class="tech-pill tech-pill-blue">Python</span>
+                  <span class="tech-pill tech-pill-green">MVVM</span>
+                  <span class="tech-pill tech-pill-purple">LoRA NLP</span>
+                </div>
+                <a href="https://github.com/Late-Plate" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom w-100">
+                  <i class="fab fa-github me-1"></i> View Organization
+                </a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card h-100 text-center hover-card fade-in delay-3">
-            <div class="card-body">
-              <i class="fas fa-gamepad fa-4x text-info mb-3"></i>
-              <h5 class="card-title">Game Development</h5>
-              <p class="card-text text-muted">Developing interactive experiences with Unity, C#, and VR/AR technologies</p>
-              <div class="mt-3">
-                <span class="badge bg-info me-1">Unity</span>
-                <span class="badge bg-info me-1">C#</span>
-                <span class="badge bg-info me-1">VR/AR</span>
+
+        <!-- 3. Go Healthy -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="Go Healthy.png" alt="Go Healthy App" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-award"><i class="fas fa-trophy me-1"></i>1st Place Winner</span>
               </div>
-              <a href="gamedev.html" class="btn btn-outline-info mt-3">Explore Games</a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Go Healthy - Fitness Tracker</h5>
+              <p class="text-secondary small mb-3">Comprehensive health & fitness tracker winning 1st place among 20 top mobile solutions in DEPI 2024.</p>
+              
+              <ul class="project-features">
+                <li>Hardware step-counter sensor integration with real-time calorie tracking via Nutritionix API</li>
+                <li>Firebase authentication, real-time cloud data sync, and personalized daily goals</li>
+                <li>Multi-language support, custom theme toggles, and proactive health notifications</li>
+              </ul>
+
+              <div class="mt-auto">
+                <div class="mb-3">
+                  <span class="tech-pill tech-pill-green">Kotlin</span>
+                  <span class="tech-pill tech-pill-green">Android SDK</span>
+                  <span class="tech-pill tech-pill-blue">Firebase</span>
+                  <span class="tech-pill tech-pill-purple">Sensors API</span>
+                  <span class="tech-pill tech-pill-amber">Nutritionix</span>
+                </div>
+                <div class="d-flex gap-2">
+                  <a href="https://github.com/Sian1902/go-healthy" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom flex-grow-1">
+                    <i class="fab fa-github me-1"></i> Code
+                  </a>
+                  <a href="awards.html" class="btn btn-primary">
+                    <i class="fas fa-award me-1"></i> Award
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+
+        <!-- 4. Backyard Baseball -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/backyard_baseball.jpg" alt="Backyard Baseball" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-feat">Commercial Game</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Backyard Baseball @ Mega Cat Studios</h5>
+              <p class="text-secondary small mb-3">Production gameplay systems and feature engineering for the iconic Backyard Baseball title in Unity and C#.</p>
+              
+              <ul class="project-features">
+                <li>Developing responsive gameplay mechanics, physics interactions, and player systems</li>
+                <li>Collaborating with art and design departments to ship polished production builds</li>
+                <li>Profiling and optimizing game performance for smooth cross-platform delivery</li>
+              </ul>
+
+              <div class="mt-auto">
+                <div class="mb-3">
+                  <span class="tech-pill tech-pill-purple">Unity</span>
+                  <span class="tech-pill tech-pill-purple">C#</span>
+                  <span class="tech-pill tech-pill-blue">Gameplay Systems</span>
+                  <span class="tech-pill tech-pill-green">Optimization</span>
+                </div>
+                <a href="gamedev.html" class="btn btn-outline-custom w-100">
+                  <i class="fas fa-gamepad me-1"></i> Explore Game Work
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Wassla -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/wassla_preview.png" alt="Wassla App" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-ai">KMP / Multiplatform</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Wassla - Marketplace App</h5>
+              <p class="text-secondary small mb-3">Cross-platform service marketplace mobile application developed with Compose Multiplatform (KMP) and Supabase.</p>
+              
+              <ul class="project-features">
+                <li>Shared UI codebase built using Compose Multiplatform across target platforms</li>
+                <li>Clean Architecture decoupling domain business logic from presentation</li>
+                <li>Integrated Supabase backend for real-time authentication, database, and storage</li>
+              </ul>
+
+              <div class="mt-auto">
+                <div class="mb-3">
+                  <span class="tech-pill tech-pill-green">Compose Multiplatform</span>
+                  <span class="tech-pill tech-pill-green">KMP</span>
+                  <span class="tech-pill tech-pill-blue">Supabase</span>
+                  <span class="tech-pill tech-pill-purple">Clean Arch</span>
+                </div>
+                <a href="mobile.html" class="btn btn-outline-custom w-100">
+                  <i class="fas fa-layer-group me-1"></i> View Mobile Stack
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Event Management API -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/event_api_preview.png" alt="Event Management API" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-feat">Spring Boot Microservice</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Event Management REST API</h5>
+              <p class="text-secondary small mb-3">Enterprise-ready backend service with JWT authentication, role-based access control, and booking pipelines.</p>
+              
+              <ul class="project-features">
+                <li>Built with Java, Spring Boot, Spring Security, and JPA/Hibernate</li>
+                <li>Implemented stateless JWT token authentication with RBAC (Admin, Organizer, User)</li>
+                <li>Optimized relational database schemas with complex search and booking features</li>
+              </ul>
+
+              <div class="mt-auto">
+                <div class="mb-3">
+                  <span class="tech-pill tech-pill-blue">Java</span>
+                  <span class="tech-pill tech-pill-blue">Spring Boot</span>
+                  <span class="tech-pill tech-pill-blue">Spring Security</span>
+                  <span class="tech-pill tech-pill-purple">JWT</span>
+                  <span class="tech-pill tech-pill-amber">MySQL</span>
+                </div>
+                <a href="https://github.com/Sian1902/ATC_01122232149/tree/main/backend" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom w-100">
+                  <i class="fab fa-github me-1"></i> View Repository
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button to browse by domain -->
+      <div class="text-center mt-5">
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="mobile.html" class="btn btn-outline-custom">
+            <i class="fas fa-mobile-alt me-1"></i> More Mobile Projects
+          </a>
+          <a href="backend.html" class="btn btn-outline-custom">
+            <i class="fas fa-server me-1"></i> More Backend Projects
+          </a>
+          <a href="gamedev.html" class="btn btn-outline-custom">
+            <i class="fas fa-gamepad me-1"></i> More Game Dev Work
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Recent Highlights -->
+  <!-- Professional Experience Timeline with Real Company Logos -->
   <section class="py-5">
     <div class="container">
-      <h2 class="text-center mb-5 section-title">Current Roles</h2>
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card highlight-card h-100">
-            <div class="card-body">
-              <h5 class="card-title"><i class="fas fa-gamepad text-primary me-2"></i>Current Positions</h5>
-              <ul class="list-unstyled mt-3">
-                <li class="mb-3">
-                  <div class="d-flex align-items-center">
-                    <div class="icon-circle bg-primary text-white me-3">
-                      <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div>
-                      <strong>Game Developer</strong><br>
-                      <small class="text-muted">Mega Cat Studios (Jul 2025 - Present)</small>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="d-flex align-items-center">
-                    <div class="icon-circle bg-success text-white me-3">
-                      <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div>
-                      <strong>Mobile App Developer</strong><br>
-                      <small class="text-muted">ITI (Oct 2025 - Present)</small>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+      <div class="text-center mb-5">
+        <div class="mb-2">
+          <span class="hero-category-badge badge-contact-track">Work History</span>
         </div>
-        <div class="col-md-6">
-          <div class="card highlight-card h-100">
+        <h2 class="section-title section-title-center">Professional Experience</h2>
+        <p class="section-subtitle">Real-world track record across game studios, enterprise backends, and mobile development</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+          <!-- 1. Mega Cat Studios -->
+          <div class="card experience-card p-4">
             <div class="card-body">
-              <h5 class="card-title"><i class="fas fa-trophy text-warning me-2"></i>Recent Awards</h5>
-              <ul class="list-unstyled mt-3">
-                <li class="mb-3">
-                  <div class="d-flex align-items-center">
-                    <div class="icon-circle bg-warning text-dark me-3">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div>
-                      <strong>Top Achievers - DEPI 2025</strong><br>
-                      <small class="text-muted">Recognized by Ministry of Communications</small>
-                    </div>
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/MegaCat.jpg" alt="Mega Cat Studios" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Game Developer</h5>
+                    <p class="text-primary fw-semibold mb-0">Mega Cat Studios</p>
                   </div>
-                </li>
-                <li class="mb-3">
-                  <div class="d-flex align-items-center">
-                    <div class="icon-circle bg-success text-white me-3">
-                      <i class="fas fa-medal"></i>
-                    </div>
-                    <div>
-                      <strong>1st Place - DEPI 2024</strong><br>
-                      <small class="text-muted">Mobile Development Track</small>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="d-flex align-items-center">
-                    <div class="icon-circle bg-info text-white me-3">
-                      <i class="fas fa-crown"></i>
-                    </div>
-                    <div>
-                      <strong>Top 3 Project - ITI Game Jam 2022</strong><br>
-                      <small class="text-muted">Presented to Minister</small>
-                    </div>
-                  </div>
-                </li>
+                </div>
+                <span class="date-pill">Jul 2025 - Present</span>
+              </div>
+              <ul class="mb-3 text-secondary">
+                <li>Developing gameplay systems and implementing features for <strong>Backyard Baseball</strong> in Unity / C#.</li>
+                <li>Optimizing gameplay performance and frame rates across target platforms.</li>
+                <li>Collaborating closely with designers, artists, and QA to ship polished, production-ready builds.</li>
               </ul>
+              <div>
+                <span class="tech-pill tech-pill-purple">Unity</span>
+                <span class="tech-pill tech-pill-purple">C#</span>
+                <span class="tech-pill tech-pill-blue">Backyard Baseball</span>
+                <span class="tech-pill tech-pill-green">Performance Profiling</span>
+              </div>
             </div>
           </div>
+
+          <!-- 2. Tactful -->
+          <div class="card experience-card p-4">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/Tactful.png" alt="Tactful" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Backend Engineer</h5>
+                    <p class="text-primary fw-semibold mb-0">Tactful</p>
+                  </div>
+                </div>
+                <span class="date-pill">May 2025 - Oct 2025</span>
+              </div>
+              <ul class="mb-3 text-secondary">
+                <li>Built automated customer service workflows using Tactful's <strong>CX Studio</strong> and JavaScript.</li>
+                <li>Integrated enterprise social channels (Facebook, Instagram, WhatsApp) into a unified communication hub.</li>
+                <li>Collaborated with the Channels engineering team to optimize backend communication pipelines and message throughput.</li>
+              </ul>
+              <div>
+                <span class="tech-pill tech-pill-blue">JavaScript</span>
+                <span class="tech-pill tech-pill-blue">REST APIs</span>
+                <span class="tech-pill tech-pill-purple">Channels Integration</span>
+                <span class="tech-pill tech-pill-amber">CX Studio</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Fawry -->
+          <div class="card experience-card p-4">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/Fawry.jpg" alt="Fawry" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Java Intern</h5>
+                    <p class="text-primary fw-semibold mb-0">Fawry</p>
+                  </div>
+                </div>
+                <span class="date-pill">Dec 2024 - Feb 2025</span>
+              </div>
+              <ul class="mb-3 text-secondary">
+                <li>Built RESTful APIs and robust backend services using Java, Spring Boot, and relational databases.</li>
+                <li>Applied OOP, enterprise design patterns, and Agile methodologies in a production environment.</li>
+                <li>Engineered the microservices-based Employee Management System with Spring Boot and Angular.</li>
+              </ul>
+              <div>
+                <span class="tech-pill tech-pill-blue">Java</span>
+                <span class="tech-pill tech-pill-blue">Spring Boot</span>
+                <span class="tech-pill tech-pill-purple">Microservices</span>
+                <span class="tech-pill tech-pill-green">JPA/Hibernate</span>
+                <span class="tech-pill tech-pill-amber">Agile</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. DEPI -->
+          <div class="card experience-card p-4">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/depi.png" alt="DEPI" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Mobile Developer Intern (1st Place Winner)</h5>
+                    <p class="text-primary fw-semibold mb-0">DEPI (Digital Egypt Pioneers Initiative)</p>
+                  </div>
+                </div>
+                <span class="date-pill">Jun 2024 - Dec 2024</span>
+              </div>
+              <ul class="mb-3 text-secondary">
+                <li>Built native Android apps end-to-end focusing on responsive UI, performance optimization, and API integration.</li>
+                <li>Collaborated on real-world mobile solutions as part of the MCIT national talent program.</li>
+                <li><strong>Ranked 1st among 20 top mobile app projects</strong> for the "Go Healthy" fitness tracking app.</li>
+              </ul>
+              <div>
+                <span class="tech-pill tech-pill-green">Kotlin</span>
+                <span class="tech-pill tech-pill-green">Android SDK</span>
+                <span class="tech-pill tech-pill-blue">Firebase</span>
+                <span class="tech-pill tech-pill-amber">1st Place Award</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. DEMI - iSchool -->
+          <div class="card experience-card p-4">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/iSchool.png" alt="iSchool" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Instructor</h5>
+                    <p class="text-primary fw-semibold mb-0">DEMI – iSchool</p>
+                  </div>
+                </div>
+                <span class="date-pill">Jun 2024 - Aug 2024</span>
+              </div>
+              <ul class="mb-3 text-secondary">
+                <li>Taught computer science fundamentals and guided students (ages 10–12) in building interactive mobile applications using Code.org.</li>
+                <li>Delivered engaging curriculum combining algorithmic thinking with visual development.</li>
+              </ul>
+              <div>
+                <span class="tech-pill tech-pill-blue">Computer Science</span>
+                <span class="tech-pill tech-pill-purple">Teaching</span>
+                <span class="tech-pill tech-pill-green">Mobile App Basics</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Top Skills -->
-  <section class="py-5 bg-light">
+  <!-- Complete Technical Skills Breakdown -->
+  <section class="py-5 bg-light-custom">
     <div class="container">
-      <h2 class="text-center mb-5 section-title">Technical Skills</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><i class="fas fa-code text-primary me-2"></i>Languages</h5>
-              <div class="skill-cloud">
-                <span class="skill-badge bg-primary">Java</span>
-                <span class="skill-badge bg-primary">Kotlin</span>
-                <span class="skill-badge bg-primary">C#</span>
-                <span class="skill-badge bg-primary">JavaScript</span>
-                <span class="skill-badge bg-primary">C++</span>
-                <span class="skill-badge bg-primary">Python</span>
+      <div class="text-center mb-5">
+        <div class="mb-2">
+          <span class="hero-category-badge badge-mobile-track">Competencies</span>
+        </div>
+        <h2 class="section-title section-title-center">Technical Skills Matrix</h2>
+        <p class="section-subtitle">Verified software engineering and development toolkit</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Android Development -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="company-logo-circle bg-success text-white">
+                <i class="fab fa-android"></i>
               </div>
+              <h5 class="fw-bold mb-0">Android Development</h5>
+            </div>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tech-pill tech-pill-green">Kotlin</span>
+              <span class="tech-pill tech-pill-green">Java</span>
+              <span class="tech-pill tech-pill-green">Jetpack Compose</span>
+              <span class="tech-pill tech-pill-green">Compose Multiplatform (KMP)</span>
+              <span class="tech-pill tech-pill-green">Clean Architecture</span>
+              <span class="tech-pill tech-pill-green">MVVM & MVI</span>
+              <span class="tech-pill tech-pill-green">Room DB</span>
+              <span class="tech-pill tech-pill-green">Coroutines & Flow</span>
+              <span class="tech-pill tech-pill-green">StateFlow & LiveData</span>
+              <span class="tech-pill tech-pill-green">Retrofit</span>
+              <span class="tech-pill tech-pill-green">Dagger/Hilt</span>
+              <span class="tech-pill tech-pill-green">Firebase & Supabase</span>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><i class="fas fa-tools text-success me-2"></i>Frameworks</h5>
-              <div class="skill-cloud">
-                <span class="skill-badge bg-success">Spring Boot</span>
-                <span class="skill-badge bg-success">Android SDK</span>
-                <span class="skill-badge bg-success">Unity</span>
-                <span class="skill-badge bg-success">Firebase</span>
-                <span class="skill-badge bg-success">Angular</span>
-                <span class="skill-badge bg-success">JPA/Hibernate</span>
+
+        <!-- Backend Development -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="company-logo-circle bg-primary text-white">
+                <i class="fas fa-server"></i>
               </div>
+              <h5 class="fw-bold mb-0">Backend Development</h5>
+            </div>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tech-pill tech-pill-blue">Java (SE, EE)</span>
+              <span class="tech-pill tech-pill-blue">Spring Boot</span>
+              <span class="tech-pill tech-pill-blue">Spring MVC</span>
+              <span class="tech-pill tech-pill-blue">Spring Security</span>
+              <span class="tech-pill tech-pill-blue">JWT Authentication</span>
+              <span class="tech-pill tech-pill-blue">Microservices</span>
+              <span class="tech-pill tech-pill-blue">RESTful APIs</span>
+              <span class="tech-pill tech-pill-blue">JPA & Hibernate</span>
+              <span class="tech-pill tech-pill-blue">Relational Databases (MySQL, PostgreSQL)</span>
+              <span class="tech-pill tech-pill-blue">NodeJS</span>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><i class="fas fa-database text-info me-2"></i>Databases & Tools</h5>
-              <div class="skill-cloud">
-                <span class="skill-badge bg-info">SQL</span>
-                <span class="skill-badge bg-info">Git/GitHub</span>
-                <span class="skill-badge bg-info">Postman</span>
-                <span class="skill-badge bg-info">REST APIs</span>
-                <span class="skill-badge bg-info">Agile</span>
-                <span class="skill-badge bg-info">Design Patterns</span>
+
+        <!-- Game Development -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="company-logo-circle bg-info text-white">
+                <i class="fas fa-gamepad"></i>
               </div>
+              <h5 class="fw-bold mb-0">Game Development</h5>
+            </div>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tech-pill tech-pill-purple">Unity 3D/2D</span>
+              <span class="tech-pill tech-pill-purple">C#</span>
+              <span class="tech-pill tech-pill-purple">Gameplay Programming</span>
+              <span class="tech-pill tech-pill-purple">UI Systems</span>
+              <span class="tech-pill tech-pill-purple">Performance Profiling</span>
+              <span class="tech-pill tech-pill-purple">VR & AR Development</span>
+              <span class="tech-pill tech-pill-purple">SFML</span>
+              <span class="tech-pill tech-pill-purple">C++</span>
+              <span class="tech-pill tech-pill-purple">Blender Basics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="company-logo-circle bg-warning text-white">
+                <i class="fas fa-code"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Programming Languages</h5>
+            </div>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tech-pill">Kotlin</span>
+              <span class="tech-pill">Java</span>
+              <span class="tech-pill">C#</span>
+              <span class="tech-pill">C++</span>
+              <span class="tech-pill">C</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Software Engineering Concepts -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="company-logo-circle bg-danger text-white">
+                <i class="fas fa-project-diagram"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Software Concepts</h5>
+            </div>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tech-pill tech-pill-amber">OOP</span>
+              <span class="tech-pill tech-pill-amber">Design Patterns</span>
+              <span class="tech-pill tech-pill-amber">SOLID Principles</span>
+              <span class="tech-pill tech-pill-amber">Clean Architecture</span>
+              <span class="tech-pill tech-pill-amber">Data Structures & Algorithms</span>
+              <span class="tech-pill tech-pill-amber">Operating Systems Architecture</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Databases -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="company-logo-circle bg-secondary text-white">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Tools & Platforms</h5>
+            </div>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tech-pill">Git & GitHub</span>
+              <span class="tech-pill">Postman</span>
+              <span class="tech-pill">Firebase</span>
+              <span class="tech-pill">Supabase</span>
+              <span class="tech-pill">Android Studio</span>
+              <span class="tech-pill">IntelliJ IDEA</span>
+              <span class="tech-pill">VS Code</span>
+              <span class="tech-pill">Linux / CLI</span>
             </div>
           </div>
         </div>
@@ -377,187 +828,151 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-5">
+  <!-- Footer CTA -->
+  <footer class="text-center">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h4 class="mb-4">Let's Build Something Amazing Together</h4>
-          <p class="mb-4">I'm always open to discussing new opportunities and interesting projects.</p>
+          <h4 class="mb-3">Let's Connect & Build Together</h4>
+          <p class="mb-4">
+            Whether you are looking for an Android Developer (Native & KMP), a Backend Engineer (Java & Spring Boot), or a Game Developer (Unity & C#), I'd love to chat.
+          </p>
           <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
-            <a href="https://github.com/Sian1902" target="_blank" class="btn btn-outline-light btn-lg">
-              <i class="fab fa-github"></i> GitHub
+            <a href="Ahmed_Haitham_CV.pdf" target="_blank" download="Ahmed_Haitham_CV.pdf" class="btn btn-gradient-cv">
+              <i class="fas fa-file-pdf me-1"></i> Download CV (PDF)
             </a>
-            <a href="https://www.linkedin.com/in/ahmed--haitham" target="_blank" class="btn btn-outline-light btn-lg">
-              <i class="fab fa-linkedin"></i> LinkedIn
+            <a href="mailto:ahmedhaitham042@gmail.com" class="btn btn-primary">
+              <i class="fas fa-envelope me-1"></i> ahmedhaitham042@gmail.com
             </a>
-            <a href="contact.html" class="btn btn-success btn-lg">
-              <i class="fas fa-paper-plane"></i> Contact Me
+            <a href="https://www.linkedin.com/in/ahmed--haitham/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom footer-btn">
+              <i class="fab fa-linkedin me-1"></i> LinkedIn
+            </a>
+            <a href="contact.html" class="btn btn-outline-custom footer-btn">
+              <i class="fas fa-paper-plane me-1"></i> Send Message
             </a>
           </div>
-          <p class="mb-0">&copy; 2025 Ahmed Haitham Elsersy. All rights reserved.</p>
+          <p class="small text-muted mb-0">
+            &copy; 2026 Ahmed Haitham Elsersy. All rights reserved.
+          </p>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- Back to Top Button -->
-  <button class="back-to-top">
+  <button class="back-to-top" aria-label="Back to Top">
     <i class="fas fa-arrow-up"></i>
   </button>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Page Loader
     window.addEventListener('load', function() {
       const loader = document.querySelector('.page-loader');
-      loader.style.opacity = '0';
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 300);
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => { loader.style.display = 'none'; }, 350);
+      }
     });
 
-  class TypeWriter {
-    constructor(txtElement, words, wait = 4000) {
-      this.txtElement = txtElement;
-      this.words = words;
-      this.txt = '';
-      this.wordIndex = 0;
-      this.wait = parseInt(wait, 10);
-      this.type();
-      this.isDeleting = false;
-    }
-
-    type() {
-      const current = this.wordIndex % this.words.length;
-      const fullTxt = this.words[current];
-
-      if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-      } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-      }
-
-      this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
-
-      let typeSpeed = 200; // was 100 → slower typing
-
-      if (this.isDeleting) {
-        typeSpeed /= 2;
-      }
-
-      if (!this.isDeleting && this.txt === fullTxt) {
-        typeSpeed = 2000;
-        this.isDeleting = true;
-      } else if (this.isDeleting && this.txt === '') {
+    // TypeWriter Class
+    class TypeWriter {
+      constructor(txtElement, words, wait = 3000) {
+        this.txtElement = txtElement;
+        this.words = words;
+        this.txt = '';
+        this.wordIndex = 0;
+        this.wait = parseInt(wait, 10);
         this.isDeleting = false;
-        this.wordIndex++;
-        typeSpeed = 800; // was 500 → slower before next word
+        this.type();
       }
 
-      setTimeout(() => this.type(), typeSpeed);
+      type() {
+        const current = this.wordIndex % this.words.length;
+        const fullTxt = this.words[current];
+
+        if (this.isDeleting) {
+          this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+          this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.txtElement.innerHTML = this.txt;
+
+        let typeSpeed = 90;
+        if (this.isDeleting) typeSpeed /= 2;
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+          typeSpeed = this.wait;
+          this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+          this.isDeleting = false;
+          this.wordIndex++;
+          typeSpeed = 400;
+        }
+
+        setTimeout(() => this.type(), typeSpeed);
+      }
     }
-  }
 
+    // Init Theme and UI Handlers
+    function updateThemeUI(theme) {
+      const icon = document.querySelector('.theme-icon');
+      const label = document.querySelector('.theme-label');
+      if (theme === 'dark') {
+        if (icon) icon.textContent = '🌙';
+        if (label) label.textContent = 'Dark';
+      } else {
+        if (icon) icon.textContent = '☀️';
+        if (label) label.textContent = 'Light';
+      }
+    }
 
-    // Initialize TypeWriter
     document.addEventListener('DOMContentLoaded', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      updateThemeUI(currentTheme);
+
       const txtElement = document.querySelector('.typed-text');
       if (txtElement) {
         const words = JSON.parse(txtElement.getAttribute('data-words'));
-        const wait = txtElement.getAttribute('data-wait');
-        new TypeWriter(txtElement, words, wait);
+        new TypeWriter(txtElement, words);
       }
 
-      // Back to Top Button
-      const backToTopButton = document.querySelector('.back-to-top');
-      
+      // Back to top
+      const backBtn = document.querySelector('.back-to-top');
       window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-          backToTopButton.classList.add('show');
+        if (window.scrollY > 300) {
+          backBtn.classList.add('show');
         } else {
-          backToTopButton.classList.remove('show');
+          backBtn.classList.remove('show');
         }
       });
-
-      backToTopButton.addEventListener('click', () => {
+      backBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
       // Navbar scroll effect
       const navbar = document.querySelector('.navbar');
       window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 40) {
           navbar.classList.add('scrolled');
         } else {
           navbar.classList.remove('scrolled');
         }
       });
 
-      // Active navigation highlighting
-      const currentPage = window.location.pathname.split('/').pop();
-      const navLinks = document.querySelectorAll('.nav-link');
-      
-      navLinks.forEach(link => {
-        const linkHref = link.getAttribute('href');
-        if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
-
-      // Animate elements on scroll
-      const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.fade-in');
-        
-        elements.forEach(element => {
-          const elementPosition = element.getBoundingClientRect().top;
-          const screenPosition = window.innerHeight / 1.3;
-          
-          if (elementPosition < screenPosition) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-          }
+      // Dark Mode Toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const html = document.documentElement;
+          const isDark = html.getAttribute('data-theme') === 'dark';
+          const next = isDark ? 'light' : 'dark';
+          html.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          updateThemeUI(next);
         });
-      };
-
-      // Set initial state
-      const fadeElements = document.querySelectorAll('.fade-in');
-      fadeElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      });
-
-      window.addEventListener('scroll', animateOnScroll);
-      animateOnScroll(); // Initial check
-    });
-
-    // ── Dark Mode ─────────────────────────────────────────────
-    (function() {
-      // Apply saved preference immediately to avoid flash
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (saved === 'dark' || (!saved && prefersDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const html = document.documentElement;
-        const isDark = html.getAttribute('data-theme') === 'dark';
-        html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        localStorage.setItem('theme', isDark ? 'light' : 'dark');
-      });
-    }
-
-    // Sync with OS preference changes (when no manual override)
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (!localStorage.getItem('theme')) {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
       }
     });
   </script>

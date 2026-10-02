@@ -4,16 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Development | Ahmed Haitham</title>
+  <meta name="description" content="Game Development portfolio of Ahmed Haitham. Game Developer @ Mega Cat Studios (Backyard Baseball), Unity, C#, Gameplay Systems, VR/AR, and SFML.">
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="style.css" rel="stylesheet">
-  <!-- Dark mode: apply before render to avoid flash -->
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/code.png">
+  
   <script>
     (function() {
       var saved = localStorage.getItem('theme');
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (saved === 'dark' || (!saved && prefersDark)) {
         document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
   </script>
@@ -25,27 +30,35 @@
   </div>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">
-        <i class="fas fa-code me-2"></i> Ahmed Haitham
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-terminal text-primary me-1"></i> Ahmed Haitham
+        <span class="brand-badge">DEV</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="mobile.html">Mobile & KMP</a></li>
           <li class="nav-item"><a class="nav-link" href="backend.html">Backend</a></li>
-          <li class="nav-item"><a class="nav-link" href="mobile.html">Mobile</a></li>
           <li class="nav-item"><a class="nav-link active" href="gamedev.html">Game Dev</a></li>
           <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          
+          <li class="nav-item">
+            <a class="btn-nav-cv" href="Ahmed_Haitham_CV.pdf" target="_blank" download="Ahmed_Haitham_CV.pdf">
+              <i class="fas fa-file-pdf text-danger"></i> Resume
+            </a>
+          </li>
 
-          <li class="nav-item d-flex align-items-center ms-2">
-            <button id="theme-toggle" aria-label="Toggle dark mode">
-              <span class="icon-moon">🌙</span>
-              <span class="icon-sun">☀️</span>
+          <!-- Dark/Light Theme Toggle -->
+          <li class="nav-item">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark and light mode">
+              <span class="theme-icon">🌙</span>
+              <span class="theme-label">Dark</span>
             </button>
           </li>
         </ul>
@@ -53,525 +66,421 @@
     </div>
   </nav>
 
-  <!-- Header -->
-  <section class="bg-info text-white text-center py-5">
-    <div class="container">
-      <h1 class="display-3 fw-bold mb-3"><i class="fas fa-gamepad"></i> Game Development</h1>
-      <p class="lead mb-4">Creating interactive experiences with Unity, VR/AR, and teaching game development</p>
-      <div class="skill-cloud">
-        <span class="skill-badge bg-light text-dark">Unity</span>
-        <span class="skill-badge bg-light text-dark">C#</span>
-        <span class="skill-badge bg-light text-dark">VR/AR</span>
-        <span class="skill-badge bg-light text-dark">C++</span>
-        <span class="skill-badge bg-light text-dark">SFML</span>
-        <span class="skill-badge bg-light text-dark">Blender</span>
+  <!-- Hero Header -->
+  <header class="subpage-hero text-center">
+    <div class="container position-relative" style="z-index: 2;">
+      <span class="hero-category-badge badge-game-track">
+        <i class="fas fa-gamepad me-1"></i> Commercial Gameplay & Engine Systems
+      </span>
+      <h1 class="display-3 fw-bold mb-3">Game Development & Interactive Systems</h1>
+      <p class="lead subpage-lead mb-4" style="max-width: 820px; margin: 0 auto;">
+        Currently developing gameplay systems for <strong>Backyard Baseball</strong> at Mega Cat Studios. Experienced in Unity, C#, gameplay architecture, UI systems, VR/AR, and C++/SFML graphics programming.
+      </p>
+
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <span class="tech-pill tech-pill-purple">Unity 3D / 2D</span>
+        <span class="tech-pill tech-pill-purple">C#</span>
+        <span class="tech-pill tech-pill-blue">Backyard Baseball</span>
+        <span class="tech-pill tech-pill-green">Gameplay Systems</span>
+        <span class="tech-pill tech-pill-amber">Performance Profiling</span>
+        <span class="tech-pill tech-pill-blue">VR & AR Development</span>
+        <span class="tech-pill tech-pill-purple">C++ & SFML</span>
+        <span class="tech-pill tech-pill-green">Blender Basics</span>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Skills Overview -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-5 section-title">Technical Expertise</h2>
-      <div class="row">
-        <div class="col-md-3 mb-4">
-          <div class="card h-100 text-center hover-card fade-in">
-            <div class="card-body">
-              <i class="fab fa-unity fa-4x text-dark mb-3"></i>
-              <h5 class="card-title">Game Engines</h5>
-              <div class="mt-3">
-                <span class="skill-badge bg-dark">Unity</span>
-                <span class="skill-badge bg-secondary">C#</span>
-                <span class="skill-badge bg-dark">Unity 3D</span>
-                <span class="skill-badge bg-secondary">Game Physics</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 mb-4">
-          <div class="card h-100 text-center hover-card fade-in">
-            <div class="card-body">
-              <i class="fas fa-code fa-4x text-primary mb-3"></i>
-              <h5 class="card-title">Programming</h5>
-              <div class="mt-3">
-                <span class="skill-badge bg-primary">C++</span>
-                <span class="skill-badge bg-info">SFML</span>
-                <span class="skill-badge bg-primary">Algorithms</span>
-                <span class="skill-badge bg-info">Game Logic</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 mb-4">
-          <div class="card h-100 text-center hover-card fade-in">
-            <div class="card-body">
-              <i class="fas fa-vr-cardboard fa-4x text-success mb-3"></i>
-              <h5 class="card-title">VR/AR Development</h5>
-              <div class="mt-3">
-                <span class="skill-badge bg-success">VR Games</span>
-                <span class="skill-badge bg-success">AR Games</span>
-                <span class="skill-badge bg-success">XR Toolkit</span>
-                <span class="skill-badge bg-success">Immersion</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 mb-4">
-          <div class="card h-100 text-center hover-card fade-in">
-            <div class="card-body">
-              <i class="fas fa-cube fa-4x text-warning mb-3"></i>
-              <h5 class="card-title">3D & Tools</h5>
-              <div class="mt-3">
-                <span class="skill-badge bg-warning text-dark">Blender</span>
-                <span class="skill-badge bg-warning text-dark">3D Modeling</span>
-                <span class="skill-badge bg-warning text-dark">Animation</span>
-                <span class="skill-badge bg-warning text-dark">Game Design</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Work Experience -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 section-title">Professional Experience</h2>
-      
-      <!-- Mega Cat Studios -->
-      <div class="card experience-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <div>
-              <h5 class="card-title mb-2">Game Developer</h5>
-              <div class="d-flex align-items-center mb-2">
-                <i class="fas fa-building text-info me-2"></i>
-                <span class="fw-bold">Mega Cat Studios</span>
-                <span class="badge bg-info ms-3">Current</span>
-              </div>
-            </div>
-            <span class="badge bg-info">Jul 2025 - Present</span>
-          </div>
-          <ul class="mb-3">
-            <li class="mb-2">Implementing gameplay features, tools, and optimizations using Unity and C#</li>
-            <li class="mb-2">Collaborating with designers and artists to deliver polished game experiences</li>
-            <li class="mb-2">Contributing to the development of commercial game projects</li>
-            <li class="mb-2">Optimizing game performance for various platforms</li>
-            <li class="mb-2">Working in a professional game development environment</li>
-          </ul>
-          <div>
-            <span class="skill-badge bg-secondary">Unity</span>
-            <span class="skill-badge bg-secondary">C#</span>
-            <span class="skill-badge bg-secondary">Game Design</span>
-            <span class="skill-badge bg-secondary">Optimization</span>
-            <span class="skill-badge bg-secondary">Commercial Games</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- GMind -->
-      <div class="card experience-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <div>
-              <h5 class="card-title mb-2">Game Developer</h5>
-              <div class="d-flex align-items-center mb-2">
-                <i class="fas fa-building text-info me-2"></i>
-                <span class="fw-bold">GMind</span>
-                <span class="badge bg-info ms-3">VR/AR Focus</span>
-              </div>
-            </div>
-            <span class="badge bg-info">Jul 2023 - Nov 2023</span>
-          </div>
-          <ul class="mb-3">
-            <li class="mb-2">Contributed to the development of 2 VR games and 1 AR game for Android</li>
-            <li class="mb-2">Worked across all stages of game development, from design to Unity implementation</li>
-            <li class="mb-2">Focused on gamifying the learning process through interactive experiences</li>
-            <li class="mb-2">Gained hands-on experience with VR/AR development for mobile platforms</li>
-            <li class="mb-2">Implemented educational content through engaging game mechanics</li>
-          </ul>
-          <div>
-            <span class="skill-badge bg-secondary">Unity</span>
-            <span class="skill-badge bg-secondary">VR</span>
-            <span class="skill-badge bg-secondary">AR</span>
-            <span class="skill-badge bg-secondary">Android</span>
-            <span class="skill-badge bg-secondary">Educational Games</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Teaching & Community -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-5 section-title">Teaching & Community Work</h2>
-      
-      <!-- GOMYCODE -->
-      <div class="card mb-4 fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <div>
-              <h5 class="card-title"><i class="fas fa-chalkboard-teacher text-primary me-2"></i>Instructor - GOMYCODE</h5>
-              <p class="text-muted mb-0">Summer Academy 2023</p>
-            </div>
-            <span class="badge bg-primary">Jun 2023 - Oct 2023</span>
-          </div>
-          <ul class="mb-3">
-            <li class="mb-2">Led the Summer Academy 2023, teaching game development with Unity and C#</li>
-            <li class="mb-2">Guided aspiring developers through hands-on game development projects</li>
-            <li class="mb-2">Designed curriculum covering Unity fundamentals and C# programming</li>
-            <li class="mb-2">Mentored students in creating their first games from concept to completion</li>
-            <li class="mb-2">Conducted workshops and code reviews for student projects</li>
-          </ul>
-          <div>
-            <span class="skill-badge bg-secondary">Unity</span>
-            <span class="skill-badge bg-secondary">C#</span>
-            <span class="skill-badge bg-secondary">Teaching</span>
-            <span class="skill-badge bg-secondary">Mentoring</span>
-            <span class="skill-badge bg-secondary">Curriculum Design</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Support ASU -->
-      <div class="card mb-4 fade-in">
-        <div class="card-body">
-          <h5 class="card-title"><i class="fas fa-users text-info me-2"></i>Support ASU - Student Activity</h5>
-          <p class="card-text">A student activity at Ain Shams University that aims to support students throughout their college journey, with a focus on game development education.</p>
-          
-          <div class="mt-4">
-            <h6 class="fw-bold mb-4">Contributions & Roles:</h6>
-            
-            <div class="timeline-item mb-4">
-              <h6><i class="fas fa-user-tie text-primary me-2"></i>Committee Head (3rd Year)</h6>
-              <ul>
-                <li class="mb-1">Managed sessions and coordinated support events with faculty</li>
-                <li class="mb-1">Curated Unity-focused educational material</li>
-                <li class="mb-1">Led team in organizing workshops and lectures</li>
-                <li class="mb-1">Mentored junior committee members</li>
-              </ul>
-            </div>
-            
-            <div class="timeline-item mb-4">
-              <h6><i class="fas fa-chalkboard-teacher text-success me-2"></i>Instructor & Content Creator</h6>
-              <ul>
-                <li class="mb-1">Taught C++ fundamentals and game development using SFML</li>
-                <li class="mb-1">Delivered multiple lectures and hands-on workshops</li>
-                <li class="mb-1">Created educational content including SFML banking system tutorial series</li>
-                <li class="mb-1">Learned Unity and Blender basics to expand teaching capabilities</li>
-              </ul>
-            </div>
-            
-            <div class="timeline-item">
-              <h6><i class="fas fa-hands-helping text-warning me-2"></i>Mentor & Advisor</h6>
-              <ul>
-                <li class="mb-1">Mentored new committee leaders on organizational best practices</li>
-                <li class="mb-1">Continued contributing to annual game development support activities</li>
-                <li class="mb-1">Provided guidance on curriculum development</li>
-                <li class="mb-1">Supported students in their game development projects</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="mt-4">
-            <span class="skill-badge bg-secondary">C++</span>
-            <span class="skill-badge bg-secondary">SFML</span>
-            <span class="skill-badge bg-secondary">Unity</span>
-            <span class="skill-badge bg-secondary">Blender</span>
-            <span class="skill-badge bg-secondary">Teaching</span>
-            <span class="skill-badge bg-secondary">Leadership</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 section-title">Game Projects</h2>
-      
-      <!-- Game Jam -->
-      <div class="card project-card border-warning fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <div>
-              <h5 class="card-title"><i class="fas fa-trophy text-warning me-2"></i>ITI Game Jam 2022</h5>
-              <p class="text-muted mb-0">Game Development Competition</p>
-            </div>
-            <span class="badge bg-warning text-dark">Top 3 Project</span>
-          </div>
-          <p class="card-text">Developed a game project that was selected among the top 3 projects in the ITI Game Jam.</p>
-          <ul class="mb-3">
-            <li class="mb-2">Competed against numerous participants in a time-constrained game jam</li>
-            <li class="mb-2">Presented the project in front of the Minister of Communications and Information Technology</li>
-            <li class="mb-2">Demonstrated strong game design and implementation skills under pressure</li>
-            <li class="mb-2">Worked collaboratively in a team environment to deliver results</li>
-          </ul>
-          <div class="mb-3">
-            <span class="skill-badge bg-info">Game Jam</span>
-            <span class="skill-badge bg-info">Game Design</span>
-            <span class="skill-badge bg-info">Rapid Development</span>
-            <span class="skill-badge bg-info">Team Collaboration</span>
-            <span class="skill-badge bg-info">Presentation</span>
-          </div>
-          <a href="awards.html" class="btn btn-outline-warning">
-            <i class="fas fa-award me-2"></i>View Award
-          </a>
-        </div>
-      </div>
-
-      <!-- VR/AR Projects at GMind -->
-      <div class="card project-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <h5 class="card-title"><i class="fas fa-vr-cardboard text-success me-2"></i>VR/AR Educational Games</h5>
-            <span class="badge bg-success">GMind Projects</span>
-          </div>
-          <p class="card-text">Contributed to the development of multiple VR and AR games focused on educational experiences.</p>
-          <ul class="mb-3">
-            <li class="mb-2">Developed 2 VR games for immersive learning experiences</li>
-            <li class="mb-2">Created 1 AR game for Android platform</li>
-            <li class="mb-2">Implemented gamification elements to enhance educational content</li>
-            <li class="mb-2">Worked with Unity's XR toolkit for VR/AR functionality</li>
-            <li class="mb-2">Optimized performance for mobile VR/AR experiences</li>
-          </ul>
-          <div class="mb-3">
-            <span class="skill-badge bg-info">Unity</span>
-            <span class="skill-badge bg-info">VR Development</span>
-            <span class="skill-badge bg-info">AR Development</span>
-            <span class="skill-badge bg-info">Educational Games</span>
-            <span class="skill-badge bg-info">XR Toolkit</span>
-            <span class="skill-badge bg-info">Android</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SFML Banking System -->
-      <div class="card project-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <h5 class="card-title"><i class="fas fa-graduation-cap text-primary me-2"></i>SFML Banking System Tutorial</h5>
-            <span class="badge bg-primary">Educational Content</span>
-          </div>
-          <p class="card-text">Created an educational tutorial series teaching SFML basics through building a banking system application.</p>
-          <ul class="mb-3">
-            <li class="mb-2">Designed comprehensive curriculum covering SFML fundamentals</li>
-            <li class="mb-2">Created step-by-step video tutorials and written guides</li>
-            <li class="mb-2">Combined game development concepts with practical application design</li>
-            <li class="mb-2">Helped students understand graphics programming and UI development</li>
-            <li class="mb-2">Built a complete banking system with GUI using C++ and SFML</li>
-          </ul>
-          <div class="mb-3">
-            <span class="skill-badge bg-info">SFML</span>
-            <span class="skill-badge bg-info">C++</span>
-            <span class="skill-badge bg-info">Educational Content</span>
-            <span class="skill-badge bg-info">GUI Development</span>
-            <span class="skill-badge bg-info">Tutorial Creation</span>
-          </div>
-          <div class="d-flex flex-wrap gap-2">
-            <a href="https://www.youtube.com/playlist?list=PLzjOuek4I_nCpJRzcCmlCjkXdTYUquG4w" target="_blank" class="btn btn-outline-danger">
-              <i class="fab fa-youtube me-2"></i> Watch Playlist
-            </a>
-            <a href="https://github.com/Sian1902/SFML-Bank-System-" target="_blank" class="btn btn-outline-primary">
-              <i class="fab fa-github me-2"></i> View Project
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Recognition -->
-  <section class="py-5 bg-light">
+  <!-- Commercial Game Developer Feature (Mega Cat Studios) -->
+  <section class="py-5 bg-light-custom">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-10">
-          <div class="card bg-info text-white">
-            <div class="card-body p-5 text-center">
-              <i class="fas fa-award fa-4x mb-4"></i>
-              <h4 class="card-title mb-4">Recognition & Impact</h4>
-              <p class="card-text lead mb-4">Recognized for excellence in game development through competition success and significant contributions to game development education. With experience in commercial game development, VR/AR projects, and teaching roles, actively building a legacy of knowledge sharing and mentorship in the gaming community.</p>
-              <div class="row mt-4">
-                <div class="col-md-4 mb-3">
-                  <div class="bg-white text-info p-3 rounded">
-                    <h4 class="fw-bold">3+</h4>
-                    <p>Years Experience</p>
+        <div class="col-lg-10">
+          <div class="card featured-role-card p-4 p-md-5 shadow-lg">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <img src="images/MegaCat.jpg" alt="Mega Cat Studios" style="width: 58px; height: 58px; border-radius: 12px; border: 2px solid var(--clr-primary);">
+                  <div>
+                    <span class="badge bg-primary mb-1">Current Professional Role</span>
+                    <h3 class="fw-bold mb-0">Game Developer @ Mega Cat Studios</h3>
                   </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                  <div class="bg-white text-info p-3 rounded">
-                    <h4 class="fw-bold">50+</h4>
-                    <p>Students Taught</p>
-                  </div>
+                <p class="role-subtext mb-3">Jul 2025 - Present | Commercial Game Studio</p>
+                <p class="role-lead mb-4" style="font-size: 1.05rem; line-height: 1.7;">
+                  Developing gameplay systems and implementing features for the renowned franchise <strong>Backyard Baseball</strong> in Unity and C#; optimizing performance and collaborating with cross-functional teams of designers, animators, and artists to ship polished, production-ready game builds.
+                </p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="tech-pill role-pill">Backyard Baseball</span>
+                  <span class="tech-pill role-pill">Unity C#</span>
+                  <span class="tech-pill role-pill">Gameplay Engineering</span>
+                  <span class="tech-pill role-pill">Frame Profiling</span>
                 </div>
-                <div class="col-md-4 mb-3">
-                  <div class="bg-white text-info p-3 rounded">
-                    <h4 class="fw-bold">5+</h4>
-                    <p>Games Developed</p>
-                  </div>
-                </div>
+              </div>
+              <div class="col-md-4 text-center mt-4 mt-md-0">
+                <img src="images/backyard_baseball.jpg" alt="Backyard Baseball" class="img-fluid rounded shadow" style="border: 2px solid var(--clr-border); max-height: 200px; object-fit: cover;">
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game Projects & Tutorials -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title section-title-center">Game Projects & Educational Content</h2>
+        <p class="section-subtitle">Commercial development, award-winning competition games, and open-source game tutorials</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- 1. Backyard Baseball -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/backyard_baseball.jpg" alt="Backyard Baseball" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-feat">Commercial Title</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-info mb-1">
+                  <i class="fas fa-baseball-ball me-2"></i>Backyard Baseball
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">Mega Cat Studios commercial game title developed in Unity / C#.</p>
+              
+              <ul class="project-features">
+                <li>Engineered core gameplay loops, player mechanics, fielding behaviors, and pitch physics.</li>
+                <li>Created custom UI systems tailored for intuitive cross-device interactions.</li>
+                <li>Conducted frame-time profiling and memory optimization to maintain smooth performance targets.</li>
+                <li>Collaborated within an established studio pipeline with version control, automated builds, and design sprints.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-purple">Unity</span>
+                <span class="tech-pill tech-pill-purple">C#</span>
+                <span class="tech-pill tech-pill-blue">Gameplay Programming</span>
+                <span class="tech-pill tech-pill-green">Profiling & Optimization</span>
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="contact.html" class="btn btn-outline-custom">
+                  <i class="fas fa-envelope me-1"></i> Inquire About Game Engineering
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. ITI Game Jam Award -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/iti.png" alt="ITI Game Jam Top 3" class="project-img" style="object-fit: contain; padding: 25px;">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-award">National Honor</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-warning mb-1">
+                  <i class="fas fa-trophy me-2"></i>ITI Game Jam (Top 3 Project)
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">Selected among the top 3 projects in the ITI Game Jam and presented before the Minister of Communications & IT.</p>
+              
+              <ul class="project-features">
+                <li>Rapid prototyping and execution within intense 48-hour game jam constraints.</li>
+                <li>Formulated core mechanics, asset integration, audio feedback, and balanced level design.</li>
+                <li>Selected among <strong>Top 3 Projects</strong> nationwide.</li>
+                <li>Demonstrated and pitched the project live to the Minister of Communications and Information Technology.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-amber">Game Jam</span>
+                <span class="tech-pill tech-pill-purple">Rapid Prototyping</span>
+                <span class="tech-pill tech-pill-blue">Game Design</span>
+                <span class="tech-pill tech-pill-green">Ministerial Honor</span>
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="awards.html" class="btn btn-primary">
+                  <i class="fas fa-medal me-1"></i> View Award Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. SFML Banking System & Tutorial -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper bg-support-asu-brand">
+              <img src="images/support_asu.jpg" alt="Support ASU - SFML Banking System & Tutorial" class="project-img project-img-contain">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-ai">Support ASU • C++</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-primary mb-1">
+                  <i class="fas fa-graduation-cap me-2"></i>SFML Banking System & Tutorial Series
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">Complete educational tutorial video series and open-source project created for Support ASU, teaching graphical programming and game architecture in C++ with SFML.</p>
+              
+              <ul class="project-features">
+                <li>Designed comprehensive educational video curriculum covering SFML windowing, event loops, and 2D graphics.</li>
+                <li>Built a complete, interactive banking simulation GUI from scratch in C++.</li>
+                <li>Published open-source codebase and companion multi-part YouTube lecture series for university peers.</li>
+                <li>Emphasized object-oriented design, resource management, and clean modular code.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-purple">C++</span>
+                <span class="tech-pill tech-pill-purple">SFML</span>
+                <span class="tech-pill tech-pill-blue">GUI Development</span>
+                <span class="tech-pill tech-pill-amber">YouTube Playlist</span>
+              </div>
+
+              <div class="mt-auto pt-2 d-flex flex-wrap gap-2">
+                <a href="https://www.youtube.com/watch?v=E17Yz4ce8f0&list=PLzjOuek4I_nCpJRzcCmlCjkXdTYUquG4w" target="_blank" rel="noopener noreferrer" class="btn btn-danger">
+                  <i class="fab fa-youtube me-1"></i> Watch Playlist
+                </a>
+                <a href="https://github.com/Sian1902/SFML-Bank-System-" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom">
+                  <i class="fab fa-github me-1"></i> View Repository
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. VR & AR Educational Games (GMind) -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper bg-gmind-brand">
+              <img src="images/Gmind.jpg" alt="GMind - VR & AR Educational Games" class="project-img project-img-contain">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-feat">GMind • XR Toolkit</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-success mb-1">
+                  <i class="fas fa-vr-cardboard me-2"></i>VR & AR Educational Games
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">Immersive virtual and augmented reality mobile educational games developed during GMind tenure.</p>
+              
+              <ul class="project-features">
+                <li>Developed 2 VR educational titles and 1 AR Android experience gamifying fundamental learning curricula.</li>
+                <li>Leveraged Unity XR Interaction Toolkit for spatial interactions, physics grabs, and locomotion.</li>
+                <li>Optimized rendering pipelines for mobile VR headsets and Android handsets to prevent motion sickness.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-green">VR Games</span>
+                <span class="tech-pill tech-pill-green">AR for Android</span>
+                <span class="tech-pill tech-pill-purple">Unity XR</span>
+                <span class="tech-pill tech-pill-blue">Gamification</span>
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="contact.html" class="btn btn-outline-custom">
+                  <i class="fas fa-info-circle me-1"></i> Inquire About XR
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community & Mentorship with Real Logos -->
+  <section class="py-5 bg-light-custom">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title section-title-center">Game Dev Leadership & Community</h2>
+        <p class="section-subtitle">Mentoring future developers and curating educational material</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+          <!-- GMind Experience Card -->
+          <div class="card experience-card p-4">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/Gmind.jpg" alt="GMind" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Game Developer (VR/AR Focus)</h5>
+                    <p class="text-primary fw-semibold mb-0">GMind</p>
+                  </div>
+                </div>
+                <span class="date-pill">Jul 2023 - Nov 2023</span>
+              </div>
+              <ul class="text-secondary mb-3">
+                <li>Contributed to the development of 2 VR games and 1 AR game for Android mobile platform.</li>
+                <li>Worked across all stages of game development, from mechanics design to Unity engine implementation.</li>
+                <li>Integrated gamified learning concepts into engaging interactive gameplay loops.</li>
+              </ul>
+              <div>
+                <span class="tech-pill tech-pill-green">Unity XR</span>
+                <span class="tech-pill tech-pill-blue">Android AR</span>
+                <span class="tech-pill tech-pill-purple">C#</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Support ASU -->
+          <div class="card experience-card p-4">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/support_asu.jpg" alt="Support ASU" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Committee Head & Instructor</h5>
+                    <p class="text-primary fw-semibold mb-0">Support ASU — Student Activity at Ain Shams University</p>
+                  </div>
+                </div>
+              </div>
+              <p class="text-secondary mb-3">
+                Support ASU is a premier student organization supporting computer science students. Served as Committee Head and Game Development Lead:
+              </p>
+              <ul class="text-secondary mb-3">
+                <li>Taught C++ fundamentals and game development using SFML across multiple university workshops.</li>
+                <li>Curated Unity-focused instructional material and coordinated game dev support events with faculty.</li>
+                <li>Produced educational content including the SFML banking system series (playlist and repository).</li>
+                <li>Mentored junior leaders to transition committee operations and sustain annual game development initiatives.</li>
+              </ul>
+              <div>
+                <span class="tech-pill tech-pill-purple">C++</span>
+                <span class="tech-pill tech-pill-purple">SFML</span>
+                <span class="tech-pill tech-pill-blue">Unity</span>
+                <span class="tech-pill tech-pill-green">Leadership</span>
+                <span class="tech-pill tech-pill-amber">Mentorship</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GOMYCODE -->
+          <div class="card experience-card p-4">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/GoMyCode.jpg" alt="GOMYCODE" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Game Development Instructor</h5>
+                    <p class="text-primary fw-semibold mb-0">GOMYCODE — Summer Academy</p>
+                  </div>
+                </div>
+                <span class="date-pill">Jun 2023 - Oct 2023</span>
+              </div>
+              <ul class="text-secondary mb-3">
+                <li>Taught game development principles, 2D/3D physics, and C# programming in Unity.</li>
+                <li>Guided students through complete game production pipelines from concept to final playable build.</li>
+              </ul>
+              <div>
+                <span class="tech-pill tech-pill-purple">Unity</span>
+                <span class="tech-pill tech-pill-purple">C#</span>
+                <span class="tech-pill tech-pill-blue">Curriculum</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-5">
+  <footer class="text-center">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h4 class="mb-4">Let's Create Amazing Games Together</h4>
-          <p class="mb-4">From concept to completion, I bring games to life with passion and technical expertise.</p>
-          <a href="contact.html" class="btn btn-info btn-lg">
-            <i class="fas fa-paper-plane me-2"></i>Start a Game Project
-          </a>
-          <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
-            <a href="index.html" class="btn btn-outline-light">Home</a>
-            <a href="backend.html" class="btn btn-outline-light">Backend Dev</a>
-            <a href="mobile.html" class="btn btn-outline-light">Mobile Dev</a>
+          <h4 class="mb-3">Building the Next Great Game?</h4>
+          <p class="mb-4">
+            From gameplay mechanics and optimization to VR/AR immersion, let's collaborate on your next interactive experience.
+          </p>
+          <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+            <a href="Ahmed_Haitham_CV.pdf" target="_blank" download="Ahmed_Haitham_CV.pdf" class="btn btn-gradient-cv">
+              <i class="fas fa-file-pdf me-1"></i> Download CV (PDF)
+            </a>
+            <a href="contact.html" class="btn btn-primary">
+              <i class="fas fa-paper-plane me-1"></i> Contact Me
+            </a>
+            <a href="index.html" class="btn btn-outline-custom footer-btn">
+              <i class="fas fa-home me-1"></i> Back Home
+            </a>
           </div>
-          <p class="mt-4 mb-0">&copy; 2025 Ahmed Haitham Elsersy. All rights reserved.</p>
+          <p class="small text-muted mb-0">
+            &copy; 2026 Ahmed Haitham Elsersy. All rights reserved.
+          </p>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top">
+  <button class="back-to-top" aria-label="Back to Top">
     <i class="fas fa-arrow-up"></i>
   </button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Page Loader
     window.addEventListener('load', function() {
       const loader = document.querySelector('.page-loader');
-      loader.style.opacity = '0';
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 300);
-    });
-
-    // Back to Top Button
-    const backToTopButton = document.querySelector('.back-to-top');
-    
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('show');
-      } else {
-        backToTopButton.classList.remove('show');
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => { loader.style.display = 'none'; }, 350);
       }
     });
 
-    backToTopButton.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+    function updateThemeUI(theme) {
+      const icon = document.querySelector('.theme-icon');
+      const label = document.querySelector('.theme-label');
+      if (theme === 'dark') {
+        if (icon) icon.textContent = '🌙';
+        if (label) label.textContent = 'Dark';
       } else {
-        navbar.classList.remove('scrolled');
+        if (icon) icon.textContent = '☀️';
+        if (label) label.textContent = 'Light';
       }
-    });
-
-    // Active navigation highlighting
-    const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-      const linkHref = link.getAttribute('href');
-      if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-
-    // Animate elements on scroll
-    const animateOnScroll = function() {
-      const elements = document.querySelectorAll('.fade-in');
-      
-      elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (elementPosition < screenPosition) {
-          element.style.opacity = '1';
-          element.style.transform = 'translateY(0)';
-        }
-      });
-    };
-
-    // Set initial state
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Initial check
-
-    // Animate progress bars
-    function animateProgressBars() {
-      const progressBars = document.querySelectorAll('.progress-bar');
-      progressBars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 300);
-      });
     }
 
-    // Trigger progress bar animation when they come into view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateProgressBars();
-        }
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      updateThemeUI(currentTheme);
+
+      const backBtn = document.querySelector('.back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) backBtn.classList.add('show');
+        else backBtn.classList.remove('show');
       });
-    }, { threshold: 0.5 });
-
-    const progressSection = document.querySelector('.py-5:last-of-type');
-    if (progressSection) {
-      observer.observe(progressSection);
-    }
-
-    // ── Dark Mode ─────────────────────────────────────────────
-    (function() {
-      // Apply saved preference immediately to avoid flash
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (saved === 'dark' || (!saved && prefersDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const html = document.documentElement;
-        const isDark = html.getAttribute('data-theme') === 'dark';
-        html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
-    }
 
-    // Sync with OS preference changes (when no manual override)
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (!localStorage.getItem('theme')) {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      const navbar = document.querySelector('.navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      });
+
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const html = document.documentElement;
+          const isDark = html.getAttribute('data-theme') === 'dark';
+          const next = isDark ? 'light' : 'dark';
+          html.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          updateThemeUI(next);
+        });
       }
     });
   </script>

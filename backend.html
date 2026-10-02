@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Backend Development | Ahmed Haitham</title>
+  <title>Backend Engineering | Ahmed Haitham</title>
+  <meta name="description" content="Backend Engineering portfolio of Ahmed Haitham. Microservices, Spring Boot, REST APIs, JWT, and Systems projects including Event Management API, Employee Management System, and FOS.">
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="style.css" rel="stylesheet">
-  <!-- Dark mode: apply before render to avoid flash -->
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/code.png">
+  
   <script>
     (function() {
       var saved = localStorage.getItem('theme');
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (saved === 'dark' || (!saved && prefersDark)) {
         document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
   </script>
@@ -25,27 +30,35 @@
   </div>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">
-        <i class="fas fa-code me-2"></i> Ahmed Haitham
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-terminal text-primary me-1"></i> Ahmed Haitham
+        <span class="brand-badge">DEV</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="mobile.html">Mobile & KMP</a></li>
           <li class="nav-item"><a class="nav-link active" href="backend.html">Backend</a></li>
-          <li class="nav-item"><a class="nav-link" href="mobile.html">Mobile</a></li>
           <li class="nav-item"><a class="nav-link" href="gamedev.html">Game Dev</a></li>
           <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          
+          <li class="nav-item">
+            <a class="btn-nav-cv" href="Ahmed_Haitham_CV.pdf" target="_blank" download="Ahmed_Haitham_CV.pdf">
+              <i class="fas fa-file-pdf text-danger"></i> Resume
+            </a>
+          </li>
 
-          <li class="nav-item d-flex align-items-center ms-2">
-            <button id="theme-toggle" aria-label="Toggle dark mode">
-              <span class="icon-moon">🌙</span>
-              <span class="icon-sun">☀️</span>
+          <!-- Dark/Light Theme Toggle -->
+          <li class="nav-item">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark and light mode">
+              <span class="theme-icon">🌙</span>
+              <span class="theme-label">Dark</span>
             </button>
           </li>
         </ul>
@@ -53,289 +66,344 @@
     </div>
   </nav>
 
-  <!-- Header -->
-  <section class="bg-primary text-white text-center py-5">
+  <!-- Hero Header -->
+  <header class="subpage-hero text-center">
+    <div class="container position-relative" style="z-index: 2;">
+      <span class="hero-category-badge badge-backend-track">
+        <i class="fas fa-server me-1"></i> Enterprise Backend & APIs
+      </span>
+      <h1 class="display-3 fw-bold mb-3">Backend Engineering & Systems</h1>
+      <p class="lead subpage-lead mb-4" style="max-width: 820px; margin: 0 auto;">
+        Architecting robust, secure, and maintainable server-side solutions with Java, Spring Boot, Spring Security, JWT authentication, microservices patterns, and relational databases.
+      </p>
+
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <span class="tech-pill tech-pill-blue">Java SE / EE</span>
+        <span class="tech-pill tech-pill-blue">Spring Boot</span>
+        <span class="tech-pill tech-pill-blue">Spring Security</span>
+        <span class="tech-pill tech-pill-purple">JWT Authentication</span>
+        <span class="tech-pill tech-pill-blue">Microservices</span>
+        <span class="tech-pill tech-pill-blue">RESTful APIs</span>
+        <span class="tech-pill tech-pill-green">JPA & Hibernate</span>
+        <span class="tech-pill tech-pill-amber">MySQL & PostgreSQL</span>
+        <span class="tech-pill tech-pill-blue">Channels Integration</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Technical Stack Overview -->
+  <section class="py-5 bg-light-custom">
     <div class="container">
-      <h1 class="display-3 fw-bold mb-3"><i class="fas fa-server"></i> Backend Development</h1>
-      <p class="lead mb-4">Building robust, scalable APIs and microservices with Java & Spring Boot</p>
-      <div class="skill-cloud">
-        <span class="skill-badge bg-light text-dark">Java</span>
-        <span class="skill-badge bg-light text-dark">Spring Boot</span>
-        <span class="skill-badge bg-light text-dark">REST APIs</span>
-        <span class="skill-badge bg-light text-dark">Microservices</span>
-        <span class="skill-badge bg-light text-dark">SQL</span>
-        <span class="skill-badge bg-light text-dark">Spring Security</span>
+      <div class="text-center mb-5">
+        <h2 class="section-title section-title-center">Backend Capabilities</h2>
+        <p class="section-subtitle">Scalable server-side architecture and data management</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Java & Frameworks -->
+        <div class="col-md-4">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="company-logo-circle bg-primary text-white">
+                <i class="fab fa-java"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Java & Spring Ecosystem</h5>
+            </div>
+            <p class="text-secondary small">Enterprise backend framework stack:</p>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tech-pill tech-pill-blue">Spring Boot 3</span>
+              <span class="tech-pill tech-pill-blue">Spring MVC</span>
+              <span class="tech-pill tech-pill-blue">Spring Security</span>
+              <span class="tech-pill tech-pill-blue">Spring Data JPA</span>
+              <span class="tech-pill tech-pill-blue">Microservices Architecture</span>
+              <span class="tech-pill tech-pill-blue">Java EE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security & Integration -->
+        <div class="col-md-4">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="company-logo-circle bg-success text-white">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Security & APIs</h5>
+            </div>
+            <p class="text-secondary small">Stateless authorization and multi-channel communication:</p>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tech-pill tech-pill-green">JWT Tokens</span>
+              <span class="tech-pill tech-pill-green">Role-Based Access (RBAC)</span>
+              <span class="tech-pill tech-pill-green">RESTful API Design</span>
+              <span class="tech-pill tech-pill-green">Social Channel APIs</span>
+              <span class="tech-pill tech-pill-green">CX Studio Automation</span>
+              <span class="tech-pill tech-pill-green">JavaScript Workflows</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data & Performance -->
+        <div class="col-md-4">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="company-logo-circle bg-warning text-white">
+                <i class="fas fa-database"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Databases & Low-Level</h5>
+            </div>
+            <p class="text-secondary small">Persistence modeling and systems-level programming:</p>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tech-pill tech-pill-amber">MySQL & PostgreSQL</span>
+              <span class="tech-pill tech-pill-amber">Hibernate ORM</span>
+              <span class="tech-pill tech-pill-amber">Relational Schema Optimization</span>
+              <span class="tech-pill tech-pill-amber">C / OS Virtual Memory</span>
+              <span class="tech-pill tech-pill-amber">TCP Sockets & Networking</span>
+              <span class="tech-pill tech-pill-amber">Postman & Newman</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills Overview -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-5 section-title">Technical Expertise</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 text-center hover-card">
-            <div class="card-body">
-              <i class="fas fa-code fa-4x text-primary mb-3"></i>
-              <h5 class="card-title">Languages & Frameworks</h5>
-              <div class="mt-3">
-                <span class="badge bg-primary me-1 mb-1">Java SE/EE</span>
-                <span class="badge bg-primary me-1 mb-1">Spring Boot</span>
-                <span class="badge bg-primary me-1 mb-1">Spring Security</span>
-                <span class="badge bg-primary me-1 mb-1">JPA/Hibernate</span>
-                <span class="badge bg-primary me-1 mb-1">JavaScript</span>
-                <span class="badge bg-primary me-1 mb-1">Angular</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 text-center hover-card">
-            <div class="card-body">
-              <i class="fas fa-database fa-4x text-success mb-3"></i>
-              <h5 class="card-title">Database & ORM</h5>
-              <div class="mt-3">
-                <span class="badge bg-success me-1 mb-1">SQL</span>
-                <span class="badge bg-success me-1 mb-1">MySQL</span>
-                <span class="badge bg-success me-1 mb-1">PostgreSQL</span>
-                <span class="badge bg-success me-1 mb-1">Hibernate</span>
-                <span class="badge bg-success me-1 mb-1">Entity Framework</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 text-center hover-card">
-            <div class="card-body">
-              <i class="fas fa-tools fa-4x text-warning mb-3"></i>
-              <h5 class="card-title">Tools & Practices</h5>
-              <div class="mt-3">
-                <span class="badge bg-warning text-dark me-1 mb-1">Git/GitHub</span>
-                <span class="badge bg-warning text-dark me-1 mb-1">Postman</span>
-                <span class="badge bg-warning text-dark me-1 mb-1">Docker</span>
-                <span class="badge bg-warning text-dark me-1 mb-1">REST APIs</span>
-                <span class="badge bg-warning text-dark me-1 mb-1">Agile</span>
-                <span class="badge bg-warning text-dark me-1 mb-1">CI/CD</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Work Experience -->
+  <!-- Work Experience Relevant to Backend with Real Logos -->
   <section class="py-5">
     <div class="container">
-      <h2 class="text-center mb-5 section-title">Professional Experience</h2>
-      
-      <!-- Tactful - Backend Engineer -->
-      <div class="card experience-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <div>
-              <h5 class="card-title mb-2">Backend Engineer</h5>
-              <div class="d-flex align-items-center mb-2">
-                <i class="fas fa-building text-primary me-2"></i>
-                <span class="fw-bold">Tactful</span>
-                <span class="badge bg-primary ms-3">Full-time</span>
-              </div>
-            </div>
-            <span class="badge bg-info">Jun 2025 - Oct 2025</span>
-          </div>
-          <ul class="mb-3">
-            <li class="mb-2">Collaborated with the Channels team to integrate customers' social media platforms (Facebook, Instagram, WhatsApp) into Tactful's unified communication system</li>
-            <li class="mb-2">Enabled centralized handling of customer inquiries and improved engagement efficiency across channels</li>
-            <li class="mb-2">Built customer service automation workflows using Tactful's CX Studio and JavaScript</li>
-            <li class="mb-2">Contributed to streamlining client processes and improving automated CX experiences</li>
-          </ul>
-          <div>
-            <span class="skill-badge bg-secondary">JavaScript</span>
-            <span class="skill-badge bg-secondary">APIs</span>
-            <span class="skill-badge bg-secondary">Social Media Integration</span>
-            <span class="skill-badge bg-secondary">CX Automation</span>
-          </div>
-        </div>
+      <div class="text-center mb-5">
+        <h2 class="section-title section-title-center">Industry Backend Roles</h2>
+        <p class="section-subtitle">Real-world commercial experience in fintech and omnichannel platforms</p>
       </div>
 
-      <!-- Fawry -->
-      <div class="card experience-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <div>
-              <h5 class="card-title mb-2">Full Stack Developer</h5>
-              <div class="d-flex align-items-center mb-2">
-                <i class="fas fa-building text-primary me-2"></i>
-                <span class="fw-bold">Fawry</span>
-                <span class="badge bg-primary ms-3">Internship</span>
-              </div>
-            </div>
-            <span class="badge bg-info">Dec 2024 - Apr 2025</span>
-          </div>
-          <ul class="mb-3">
-            <li class="mb-2">Gained hands-on experience with Java, Spring Framework and REST API design</li>
-            <li class="mb-2">Worked with relational databases and web technologies like Angular</li>
-            <li class="mb-2">Learned about design patterns, Agile principles, and DevOps practices</li>
-            <li class="mb-2">Collaborated on a real-world project to apply all learned skills</li>
-            <li class="mb-2">Developed microservices-based employee management system</li>
-          </ul>
-          <div>
-            <span class="skill-badge bg-secondary">Java</span>
-            <span class="skill-badge bg-secondary">Spring Boot</span>
-            <span class="skill-badge bg-secondary">REST APIs</span>
-            <span class="skill-badge bg-secondary">Angular</span>
-            <span class="skill-badge bg-secondary">Microservices</span>
-            <span class="skill-badge bg-secondary">Agile</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- National Technology -->
-      <div class="card experience-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <div>
-              <h5 class="card-title mb-2">Internship Trainee</h5>
-              <div class="d-flex align-items-center mb-2">
-                <i class="fas fa-building text-primary me-2"></i>
-                <span class="fw-bold">National Technology</span>
-                <span class="badge bg-primary ms-3">Internship</span>
-              </div>
-            </div>
-            <span class="badge bg-info">Sep 2022 - Oct 2022</span>
-          </div>
-          <ul class="mb-3">
-            <li class="mb-2">Assisted in managing network administration and IT tasks during this one-month internship</li>
-            <li class="mb-2">Gained exposure to enterprise IT infrastructure</li>
-            <li class="mb-2">Learned about network management and system administration</li>
-          </ul>
-          <div>
-            <span class="skill-badge bg-secondary">Network Administration</span>
-            <span class="skill-badge bg-secondary">IT Support</span>
-            <span class="skill-badge bg-secondary">System Administration</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-5 section-title">Backend Projects</h2>
-      
-      <!-- Event Management API -->
-      <div class="card project-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <h5 class="card-title"><i class="fas fa-calendar-alt text-primary me-2"></i>Event Management API</h5>
-            <span class="badge bg-success">Spring Boot Project</span>
-          </div>
-          <p class="card-text">Built a secure RESTful API for managing events, bookings, and user roles with comprehensive features.</p>
-          <ul class="mb-3">
-            <li class="mb-2">Implemented JWT authentication and role-based access control</li>
-            <li class="mb-2">Designed CRUD operations for events with advanced search and filtering capabilities</li>
-            <li class="mb-2">Created booking & liking features with optimized relational schema</li>
-            <li class="mb-2">Integrated user role management system</li>
-          </ul>
-          <div class="mb-3">
-            <span class="skill-badge bg-success">Spring Boot</span>
-            <span class="skill-badge bg-success">JWT</span>
-            <span class="skill-badge bg-success">Spring Security</span>
-            <span class="skill-badge bg-success">REST API</span>
-            <span class="skill-badge bg-success">SQL</span>
-            <span class="skill-badge bg-success">MySQL</span>
-          </div>
-          <a href="https://github.com/Sian1902/ATC_01122232149/tree/main/backend" target="_blank" class="btn btn-outline-primary">
-            <i class="fab fa-github me-2"></i>View Repository
-          </a>
-        </div>
-      </div>
-
-      <!-- Employee Management System -->
-      <div class="card project-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <h5 class="card-title"><i class="fas fa-users text-success me-2"></i>Employee Management System</h5>
-            <span class="badge bg-success">Fawry Internship Project</span>
-          </div>
-          <p class="card-text">Developed a microservices-based system during Fawry's internship to manage employees, teams, attendance, evaluations, and hiring.</p>
-          <ul class="mb-3">
-            <li class="mb-2">Built RESTful APIs for user roles, reporting hierarchy, and history tracking</li>
-            <li class="mb-2">Utilized Enums and projections for efficient data handling</li>
-            <li class="mb-2">Designed and integrated a responsive Angular frontend with backend services</li>
-            <li class="mb-2">Implemented microservices architecture for scalability</li>
-            <li class="mb-2">Applied design patterns and SOLID principles</li>
-          </ul>
-          <div class="mb-3">
-            <span class="skill-badge bg-success">Spring Boot</span>
-            <span class="skill-badge bg-success">Angular</span>
-            <span class="skill-badge bg-success">Microservices</span>
-            <span class="skill-badge bg-success">JPA/Hibernate</span>
-            <span class="skill-badge bg-success">REST API</span>
-            <span class="skill-badge bg-success">Design Patterns</span>
-          </div>
-          <a href="https://github.com/Fawry-Internship-Porject" target="_blank" class="btn btn-outline-success">
-            <i class="fab fa-github me-2"></i>View Organization
-          </a>
-        </div>
-      </div>
-
-      <!-- FOS -->
-      <div class="card project-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <h5 class="card-title"><i class="fas fa-cogs text-info me-2"></i>FOS - Operating System</h5>
-            <span class="badge bg-info">University Project</span>
-          </div>
-          <p class="card-text">Developed a basic operating system with kernel and user modes, enabling user programs to run in virtual memory space.</p>
-          <ul class="mb-3">
-            <li class="mb-2">Implemented memory management (segment/block allocators, paging with FIFO & LRU)</li>
-            <li class="mb-2">Built fault handling mechanisms</li>
-            <li class="mb-2">Created process scheduling using round-robin and BSD priority-based algorithms</li>
-            <li class="mb-2">Worked with low-level C programming and system architecture</li>
-          </ul>
-          <div class="mb-3">
-            <span class="skill-badge bg-info">C</span>
-            <span class="skill-badge bg-info">OS Development</span>
-            <span class="skill-badge bg-info">Memory Management</span>
-            <span class="skill-badge bg-info">Algorithms</span>
-            <span class="skill-badge bg-info">System Architecture</span>
-          </div>
-          <a href="https://github.com/Sian1902/fos" target="_blank" class="btn btn-outline-info">
-            <i class="fab fa-github me-2"></i>View Repository
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Competencies -->
-  <section class="py-5">
-    <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <div class="card bg-gradient text-white">
-            <div class="card-body p-5">
-              <h4 class="card-title text-center mb-4"><i class="fas fa-lightbulb me-2"></i>Core Backend Competencies</h4>
-              <div class="row">
-                <div class="col-md-6">
-                  <ul class="list-unstyled">
-                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i>RESTful API Design & Development</li>
-                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i>Spring Boot & Spring Security</li>
-                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i>Microservices Architecture</li>
-                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i>Database Design & Optimization</li>
-                  </ul>
+
+          <!-- Tactful -->
+          <div class="card experience-card p-4">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/Tactful.png" alt="Tactful" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Backend Engineer</h5>
+                    <p class="text-primary fw-semibold mb-0">Tactful</p>
+                  </div>
                 </div>
-                <div class="col-md-6">
-                  <ul class="list-unstyled">
-                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i>JWT Authentication & Authorization</li>
-                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i>OOP & Design Patterns</li>
-                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i>API Integration (Social Media, etc.)</li>
-                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i>Agile Development Practices</li>
-                  </ul>
+                <span class="date-pill">May 2025 - Oct 2025</span>
+              </div>
+              <ul class="mb-3 text-secondary">
+                <li>Built customer service automation workflows using Tactful's <strong>CX Studio</strong> and JavaScript.</li>
+                <li>Integrated enterprise social channels (Facebook, Instagram, WhatsApp) into Tactful's unified CX platform.</li>
+                <li>Collaborated closely with the Channels core team to optimize backend communication pipelines and message throughput.</li>
+              </ul>
+              <div>
+                <span class="tech-pill tech-pill-blue">JavaScript</span>
+                <span class="tech-pill tech-pill-blue">REST APIs</span>
+                <span class="tech-pill tech-pill-purple">Omnichannel Integration</span>
+                <span class="tech-pill tech-pill-amber">CX Studio</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fawry -->
+          <div class="card experience-card p-4">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/Fawry.jpg" alt="Fawry" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Java Intern</h5>
+                    <p class="text-primary fw-semibold mb-0">Fawry</p>
+                  </div>
                 </div>
+                <span class="date-pill">Dec 2024 - Feb 2025</span>
+              </div>
+              <ul class="mb-3 text-secondary">
+                <li>Built REST APIs and scalable backend services using Java, Spring Boot, and relational databases.</li>
+                <li>Applied OOP, enterprise design patterns, and Agile development practices in a high-standard fintech environment.</li>
+                <li>Architected the backend for a microservices-based employee management platform integrating with an Angular frontend.</li>
+              </ul>
+              <div>
+                <span class="tech-pill tech-pill-blue">Java</span>
+                <span class="tech-pill tech-pill-blue">Spring Boot</span>
+                <span class="tech-pill tech-pill-purple">Microservices</span>
+                <span class="tech-pill tech-pill-green">JPA/Hibernate</span>
+                <span class="tech-pill tech-pill-amber">Agile</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Backend Projects Section -->
+  <section class="py-5 bg-light-custom">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title section-title-center">Backend & Systems Projects</h2>
+        <p class="section-subtitle">Verified production repositories and architectural demonstrations</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- 1. Event Management API -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/event_api_preview.png" alt="Event Management API" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-feat">Spring Boot</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-primary mb-1">
+                  <i class="fas fa-calendar-alt me-2"></i>Event Management API
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">Enterprise-grade secure REST API for managing events, seat reservations, user roles, and bookings.</p>
+              
+              <ul class="project-features">
+                <li>Developed with <strong>Spring Boot</strong>, <strong>Spring Security</strong>, and <strong>MySQL</strong>.</li>
+                <li>Implemented stateless <strong>JWT authentication</strong> with Role-Based Access Control (Admin, Organizer, Participant).</li>
+                <li>CRUD operations for event lifecycle, with advanced search, filtering, and pagination.</li>
+                <li>Booking transaction pipelines with database concurrency protection and booking validation.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-blue">Spring Boot</span>
+                <span class="tech-pill tech-pill-blue">Spring Security</span>
+                <span class="tech-pill tech-pill-purple">JWT</span>
+                <span class="tech-pill tech-pill-green">JPA/Hibernate</span>
+                <span class="tech-pill tech-pill-amber">MySQL</span>
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="https://github.com/Sian1902/ATC_01122232149/tree/main/backend" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom">
+                  <i class="fab fa-github me-1"></i> View Repository
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Employee Management System -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper bg-fawry-brand">
+              <img src="images/Fawry.jpg" alt="Fawry - Employee Management System" class="project-img project-img-contain">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-feat">Fawry Internship</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-success mb-1">
+                  <i class="fas fa-users-cog me-2"></i>Employee Management System
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">Microservices HR management platform with Spring Boot backend and responsive Angular frontend developed during Fawry internship.</p>
+              
+              <ul class="project-features">
+                <li>Built RESTful APIs for managing employees, hierarchical reporting structures, evaluation metrics, and attendance tracking.</li>
+                <li>Leveraged Java Enums and JPA Projections to minimize payload size and improve database queries.</li>
+                <li>Designed and integrated responsive Angular frontend views with backend services.</li>
+                <li>Applied SOLID principles, Repository pattern, and service-layer separation.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-blue">Spring Boot</span>
+                <span class="tech-pill tech-pill-purple">Microservices</span>
+                <span class="tech-pill tech-pill-green">JPA & Hibernate</span>
+                <span class="tech-pill tech-pill-amber">Angular</span>
+                <span class="tech-pill tech-pill-blue">REST APIs</span>
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="https://github.com/Fawry-Internship-Porject" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom">
+                  <i class="fab fa-github me-1"></i> View Organization
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Online XO (TCP Sockets & Minimax AI) -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/online_xo_preview.png" alt="Online XO Multiplayer Game" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-feat">Java & Sockets</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-info mb-1">
+                  <i class="fas fa-network-wired me-2"></i>Online XO (Multiplayer TCP)
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">Multiplayer Tic-Tac-Toe featuring custom client-server socket protocol, Minimax AI engine, and match record replays.</p>
+              
+              <ul class="project-features">
+                <li>Multi-threaded server handling concurrent player matchmaking over <strong>TCP Sockets</strong>.</li>
+                <li>Implemented the <strong>Minimax AI algorithm</strong> for single-player challenge mode with optimal decision trees.</li>
+                <li>Designed match serialization and history recording allowing players to replay recorded games step-by-step.</li>
+                <li>Desktop GUI client constructed with JavaFX and responsive event loops.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-blue">Java</span>
+                <span class="tech-pill tech-pill-blue">TCP Sockets</span>
+                <span class="tech-pill tech-pill-purple">Minimax AI</span>
+                <span class="tech-pill tech-pill-amber">JavaFX</span>
+                <span class="tech-pill tech-pill-green">Concurrency</span>
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="https://github.com/ITI-Java-Project" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom">
+                  <i class="fab fa-github me-1"></i> View Organization
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. FOS (Operating System) -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/fos_preview.png" alt="FOS Operating System" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-ai">Low-Level C</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-warning mb-1">
+                  <i class="fas fa-microchip me-2"></i>FOS (FCIS Operating System)
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">Operating system in C featuring kernel/user mode switching, custom virtual memory management, and CPU scheduling.</p>
+              
+              <ul class="project-features">
+                <li>Implemented virtual memory subsystem with block/segment allocators, page tables, and page fault handling.</li>
+                <li>Engineered page replacement algorithms including FIFO and Least Recently Used (LRU).</li>
+                <li>Developed CPU process scheduling mechanisms utilizing Round-Robin and BSD priority queues.</li>
+                <li>Deep low-level memory layout control and hardware interrupt handling in C.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-amber">C Language</span>
+                <span class="tech-pill tech-pill-blue">Operating Systems</span>
+                <span class="tech-pill tech-pill-purple">Memory Management</span>
+                <span class="tech-pill tech-pill-green">CPU Scheduling</span>
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="https://github.com/Sian1902/FOS" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom">
+                  <i class="fab fa-github me-1"></i> View Repository
+                </a>
               </div>
             </div>
           </div>
@@ -344,159 +412,89 @@
     </div>
   </section>
 
- 
-
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-5">
+  <footer class="text-center">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h4 class="mb-4">Ready to Build Something Great?</h4>
-          <p class="mb-4">Let's discuss your backend development needs and create robust, scalable solutions.</p>
-          <a href="contact.html" class="btn btn-primary btn-lg">
-            <i class="fas fa-paper-plane me-2"></i>Contact Me
-          </a>
-          <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
-            <a href="index.html" class="btn btn-outline-light">Home</a>
-            <a href="mobile.html" class="btn btn-outline-light">Mobile Dev</a>
-            <a href="gamedev.html" class="btn btn-outline-light">Game Dev</a>
+          <h4 class="mb-3">Need Robust Backend Architecture?</h4>
+          <p class="mb-4">
+            From secure Spring Boot microservices to custom integrations and network protocols, let's build reliable software.
+          </p>
+          <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+            <a href="Ahmed_Haitham_CV.pdf" target="_blank" download="Ahmed_Haitham_CV.pdf" class="btn btn-gradient-cv">
+              <i class="fas fa-file-pdf me-1"></i> Download CV (PDF)
+            </a>
+            <a href="contact.html" class="btn btn-primary">
+              <i class="fas fa-paper-plane me-1"></i> Contact Me
+            </a>
+            <a href="index.html" class="btn btn-outline-custom footer-btn">
+              <i class="fas fa-home me-1"></i> Back Home
+            </a>
           </div>
-          <p class="mt-4 mb-0">&copy; 2025 Ahmed Haitham Elsersy. All rights reserved.</p>
+          <p class="small text-muted mb-0">
+            &copy; 2026 Ahmed Haitham Elsersy. All rights reserved.
+          </p>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top">
+  <button class="back-to-top" aria-label="Back to Top">
     <i class="fas fa-arrow-up"></i>
   </button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Page Loader
     window.addEventListener('load', function() {
       const loader = document.querySelector('.page-loader');
-      loader.style.opacity = '0';
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 300);
-    });
-
-    // Back to Top Button
-    const backToTopButton = document.querySelector('.back-to-top');
-    
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('show');
-      } else {
-        backToTopButton.classList.remove('show');
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => { loader.style.display = 'none'; }, 350);
       }
     });
 
-    backToTopButton.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+    function updateThemeUI(theme) {
+      const icon = document.querySelector('.theme-icon');
+      const label = document.querySelector('.theme-label');
+      if (theme === 'dark') {
+        if (icon) icon.textContent = '🌙';
+        if (label) label.textContent = 'Dark';
       } else {
-        navbar.classList.remove('scrolled');
+        if (icon) icon.textContent = '☀️';
+        if (label) label.textContent = 'Light';
       }
-    });
-
-    // Active navigation highlighting
-    const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-      const linkHref = link.getAttribute('href');
-      if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-
-    // Animate elements on scroll
-    const animateOnScroll = function() {
-      const elements = document.querySelectorAll('.fade-in');
-      
-      elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (elementPosition < screenPosition) {
-          element.style.opacity = '1';
-          element.style.transform = 'translateY(0)';
-        }
-      });
-    };
-
-    // Set initial state
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Initial check
-
-    // Animate progress bars
-    function animateProgressBars() {
-      const progressBars = document.querySelectorAll('.progress-bar');
-      progressBars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 300);
-      });
     }
 
-    // Trigger progress bar animation when they come into view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateProgressBars();
-        }
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      updateThemeUI(currentTheme);
+
+      const backBtn = document.querySelector('.back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) backBtn.classList.add('show');
+        else backBtn.classList.remove('show');
       });
-    }, { threshold: 0.5 });
-
-    const progressSection = document.querySelector('.bg-light:last-of-type');
-    if (progressSection) {
-      observer.observe(progressSection);
-    }
-
-    // ── Dark Mode ─────────────────────────────────────────────
-    (function() {
-      // Apply saved preference immediately to avoid flash
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (saved === 'dark' || (!saved && prefersDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const html = document.documentElement;
-        const isDark = html.getAttribute('data-theme') === 'dark';
-        html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
-    }
 
-    // Sync with OS preference changes (when no manual override)
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (!localStorage.getItem('theme')) {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      const navbar = document.querySelector('.navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      });
+
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const html = document.documentElement;
+          const isDark = html.getAttribute('data-theme') === 'dark';
+          const next = isDark ? 'light' : 'dark';
+          html.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          updateThemeUI(next);
+        });
       }
     });
   </script>

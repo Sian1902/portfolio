@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile Development | Ahmed Haitham</title>
+  <title>Mobile & Multiplatform Development | Ahmed Haitham</title>
+  <meta name="description" content="Native Android & Compose Multiplatform portfolio of Ahmed Haitham. Projects including Qafilah, Late Plate, Go Healthy, Wassla, Plate Mate, and Weather.">
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="style.css" rel="stylesheet">
-  <!-- Dark mode: apply before render to avoid flash -->
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/code.png">
+  
   <script>
     (function() {
       var saved = localStorage.getItem('theme');
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (saved === 'dark' || (!saved && prefersDark)) {
         document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
   </script>
@@ -25,27 +30,35 @@
   </div>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">
-        <i class="fas fa-code me-2"></i> Ahmed Haitham
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-terminal text-primary me-1"></i> Ahmed Haitham
+        <span class="brand-badge">DEV</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="mobile.html">Mobile & KMP</a></li>
           <li class="nav-item"><a class="nav-link" href="backend.html">Backend</a></li>
-          <li class="nav-item"><a class="nav-link active" href="mobile.html">Mobile</a></li>
           <li class="nav-item"><a class="nav-link" href="gamedev.html">Game Dev</a></li>
           <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          
+          <li class="nav-item">
+            <a class="btn-nav-cv" href="Ahmed_Haitham_CV.pdf" target="_blank" download="Ahmed_Haitham_CV.pdf">
+              <i class="fas fa-file-pdf text-danger"></i> Resume
+            </a>
+          </li>
 
-          <li class="nav-item d-flex align-items-center ms-2">
-            <button id="theme-toggle" aria-label="Toggle dark mode">
-              <span class="icon-moon">🌙</span>
-              <span class="icon-sun">☀️</span>
+          <!-- Dark/Light Theme Toggle -->
+          <li class="nav-item">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark and light mode">
+              <span class="theme-icon">🌙</span>
+              <span class="theme-label">Dark</span>
             </button>
           </li>
         </ul>
@@ -53,477 +66,554 @@
     </div>
   </nav>
 
-  <!-- Header -->
-  <section class="bg-success text-white text-center py-5">
-    <div class="container">
-      <h1 class="display-3 fw-bold mb-3"><i class="fas fa-mobile-alt"></i> Mobile Development</h1>
-      <p class="lead mb-4">Creating native Android applications with modern architecture and best practices</p>
-      <div class="skill-cloud">
-        <span class="skill-badge bg-light text-dark">Kotlin</span>
-        <span class="skill-badge bg-light text-dark">Android</span>
-        <span class="skill-badge bg-light text-dark">MVVM</span>
-        <span class="skill-badge bg-light text-dark">Firebase</span>
-        <span class="skill-badge bg-light text-dark">Java</span>
-        <span class="skill-badge bg-light text-dark">REST API</span>
+  <!-- Hero Header -->
+  <header class="subpage-hero text-center">
+    <div class="container position-relative" style="z-index: 2;">
+      <span class="hero-category-badge badge-mobile-track">
+        <i class="fab fa-android me-1"></i> Native Android & KMP
+      </span>
+      <h1 class="display-3 fw-bold mb-3">Mobile & Multiplatform Development</h1>
+      <p class="lead subpage-lead mb-4" style="max-width: 820px; margin: 0 auto;">
+        Building robust Android applications and cross-platform solutions with Kotlin, Jetpack Compose, Compose Multiplatform (KMP), reactive architectures (MVI/MVVM), and Clean Architecture.
+      </p>
+
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <span class="tech-pill tech-pill-green">Kotlin</span>
+        <span class="tech-pill tech-pill-green">Jetpack Compose</span>
+        <span class="tech-pill tech-pill-green">Compose Multiplatform (KMP)</span>
+        <span class="tech-pill tech-pill-blue">Clean Architecture</span>
+        <span class="tech-pill tech-pill-purple">MVI & MVVM</span>
+        <span class="tech-pill tech-pill-green">Room & SQLite</span>
+        <span class="tech-pill tech-pill-blue">Coroutines & StateFlow</span>
+        <span class="tech-pill tech-pill-amber">Dagger/Hilt</span>
+        <span class="tech-pill tech-pill-blue">Firebase & Supabase</span>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Skills Overview -->
-  <section class="py-5 bg-light">
+  <!-- Tech Stack Grid -->
+  <section class="py-5 bg-light-custom">
     <div class="container">
-      <h2 class="text-center mb-5 section-title">Technical Stack</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 text-center hover-card">
-            <div class="card-body">
-              <i class="fas fa-mobile-alt fa-4x text-success mb-3"></i>
-              <h5 class="card-title">Android Development</h5>
-              <div class="mt-3">
-                <span class="skill-badge bg-success">Kotlin</span>
-                <span class="skill-badge bg-success">Java</span>
-                <span class="skill-badge bg-success">Android SDK</span>
-                <span class="skill-badge bg-success">Jetpack Compose</span>
-                <span class="skill-badge bg-success">Material Design</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 text-center hover-card">
-            <div class="card-body">
-              <i class="fas fa-project-diagram fa-4x text-primary mb-3"></i>
-              <h5 class="card-title">Architecture & Patterns</h5>
-              <div class="mt-3">
-                <span class="skill-badge bg-primary">MVVM</span>
-                <span class="skill-badge bg-primary">ViewModel</span>
-                <span class="skill-badge bg-primary">LiveData</span>
-                <span class="skill-badge bg-primary">Coroutines</span>
-                <span class="skill-badge bg-primary">Clean Architecture</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 text-center hover-card">
-            <div class="card-body">
-              <i class="fas fa-database fa-4x text-warning mb-3"></i>
-              <h5 class="card-title">Backend & APIs</h5>
-              <div class="mt-3">
-                <span class="skill-badge bg-warning text-dark">Firebase</span>
-                <span class="skill-badge bg-warning text-dark">REST APIs</span>
-                <span class="skill-badge bg-warning text-dark">Retrofit</span>
-                <span class="skill-badge bg-warning text-dark">Room DB</span>
-                <span class="skill-badge bg-warning text-dark">SQLite</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Work Experience -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 section-title">Professional Journey</h2>
-      
-      <!-- ITI -->
-      <div class="card experience-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <div>
-              <h5 class="card-title mb-2">Mobile Development Track</h5>
-              <div class="d-flex align-items-center mb-2">
-                <i class="fas fa-building text-success me-2"></i>
-                <span class="fw-bold">ITI (Information Technology Institute)</span>
-                <span class="badge bg-success ms-3">Training</span>
-              </div>
-            </div>
-            <span class="badge bg-success">Oct 2025 - Present</span>
-          </div>
-          <ul class="mb-3">
-            <li class="mb-2">Selected for ITI's competitive Mobile Development (Native) track</li>
-            <li class="mb-2">Training in Android development, Kotlin/Java, and mobile architecture patterns</li>
-            <li class="mb-2">Developing real-world applications with industry best practices</li>
-            <li class="mb-2">Learning advanced topics in performance optimization and UI/UX design</li>
-          </ul>
-          <div>
-            <span class="skill-badge bg-secondary">Kotlin</span>
-            <span class="skill-badge bg-secondary">Android</span>
-            <span class="skill-badge bg-secondary">MVVM</span>
-            <span class="skill-badge bg-secondary">Clean Architecture</span>
-            <span class="skill-badge bg-secondary">Performance</span>
-          </div>
-        </div>
+      <div class="text-center mb-5">
+        <h2 class="section-title section-title-center">Mobile Engineering Stack</h2>
+        <p class="section-subtitle">Modern native Android tools, libraries, and architectural patterns</p>
       </div>
 
-      <!-- DEPI -->
-      <div class="card experience-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <div>
-              <h5 class="card-title mb-2">Mobile Developer Intern</h5>
-              <div class="d-flex align-items-center mb-2">
-                <i class="fas fa-building text-success me-2"></i>
-                <span class="fw-bold">DEPI (Digital Egypt Pioneers Initiative)</span>
-                <span class="badge bg-success ms-3">Internship</span>
-              </div>
-            </div>
-            <span class="badge bg-success">June - Dec 2024</span>
-          </div>
-          <ul class="mb-3">
-            <li class="mb-2">Built Android applications from scratch, focusing on UI design and performance optimization</li>
-            <li class="mb-2">Implemented API integration and real-time data synchronization</li>
-            <li class="mb-2">Collaborated with team members to design and develop real-world mobile solutions</li>
-            <li class="mb-2">Part of MCIT (Ministry of Communications and Information Technology) initiative</li>
-            <li class="mb-2">Ranked 1st among 20 top mobile app projects</li>
-          </ul>
-          <div>
-            <span class="skill-badge bg-secondary">Android</span>
-            <span class="skill-badge bg-secondary">Firebase</span>
-            <span class="skill-badge bg-secondary">API Integration</span>
-            <span class="skill-badge bg-secondary">UI/UX Design</span>
-            <span class="skill-badge bg-secondary">Performance</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- DEMI Instructor -->
-      <div class="card experience-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <div>
-              <h5 class="card-title mb-2">Instructor</h5>
-              <div class="d-flex align-items-center mb-2">
-                <i class="fas fa-building text-success me-2"></i>
-                <span class="fw-bold">DEMI â€“ iSchool</span>
-                <span class="badge bg-success ms-3">Teaching</span>
-              </div>
-            </div>
-            <span class="badge bg-success">June - Aug 2024</span>
-          </div>
-          <ul class="mb-3">
-            <li class="mb-2">Taught computer science fundamentals to children (ages 10-12) through interactive online sessions</li>
-            <li class="mb-2">Guided students in building mobile apps using Code.org</li>
-            <li class="mb-2">Combined theory with hands-on learning to engage young learners</li>
-            <li class="mb-2">Developed curriculum for mobile app development basics</li>
-          </ul>
-          <div>
-            <span class="skill-badge bg-secondary">Teaching</span>
-            <span class="skill-badge bg-secondary">Mobile Apps</span>
-            <span class="skill-badge bg-secondary">Code.org</span>
-            <span class="skill-badge bg-secondary">Curriculum Development</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-5 section-title">Featured Projects</h2>
-      
-      <!-- Late Plate -->
-      <div class="card project-card border-warning fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <div>
-              <h5 class="card-title"><i class="fas fa-robot text-warning me-2"></i>Late Plate - AI Recipe Generator</h5>
-              <p class="text-muted">Graduation Project - Grade: A</p>
-            </div>
-          </div>
-          <p class="card-text">Co-developed an AI-powered Android app for personalized recipe generation and cooking assistance using NLP and deep learning.</p>
-          <ul class="mb-3">
-            <li class="mb-2">Fine-tuned GPT-2 and LLaMA 3.2 models on RecipeNLG dataset with custom tokenization</li>
-            <li class="mb-2">Implemented LoRA optimization to generate diverse, user-specific recipes</li>
-            <li class="mb-2">Integrated AI models via RESTful APIs into Kotlin-based mobile app</li>
-            <li class="mb-2">Built with ViewModel architecture for efficient state management</li>
-          </ul>
-          <div class="mb-3">
-            <span class="skill-badge bg-success">Kotlin</span>
-            <span class="skill-badge bg-success">Python</span>
-            <span class="skill-badge bg-success">Android</span>
-            <span class="skill-badge bg-success">AI/ML</span>
-            <span class="skill-badge bg-success">REST API</span>
-            <span class="skill-badge bg-success">MVVM</span>
-          </div>
-          <a href="https://github.com/Late-Plate" target="_blank" class="btn btn-outline-warning">
-            <i class="fab fa-github me-2"></i> View Organization
-          </a>
-        </div>
-      </div>
-
-      <!-- Go Healthy -->
-      <div class="card project-card fade-in">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
-            <div>
-              <h5 class="card-title"><i class="fas fa-heartbeat text-danger me-2"></i>Go Healthy - Fitness Tracker</h5>
-              <p class="text-muted">DEPI 2024 Competition Project</p>
-            </div>
-            <span class="badge bg-danger"><i class="fas fa-trophy me-1"></i> 1st Place Winner</span>
-          </div>
-          <p class="card-text">Comprehensive health and fitness tracking Android application with personalized recommendations.</p>
-          <ul class="mb-3">
-            <li class="mb-2">Integrated Firebase for secure authentication and real-time data syncing</li>
-            <li class="mb-2">Used Android sensors and Nutritionix API for step counting and calorie tracking</li>
-            <li class="mb-2">Calculated BMI and personalized daily calorie goals to support healthy lifestyles</li>
-            <li class="mb-2">Implemented push notifications, theme options, and multilingual support</li>
-            <li class="mb-2">Featured in MCIT ceremony as top mobile project</li>
-          </ul>
-          <div class="mb-3">
-            <span class="skill-badge bg-success">Kotlin</span>
-            <span class="skill-badge bg-success">Android</span>
-            <span class="skill-badge bg-success">Firebase</span>
-            <span class="skill-badge bg-success">Nutritionix API</span>
-            <span class="skill-badge bg-success">Sensors</span>
-            <span class="skill-badge bg-success">Localization</span>
-          </div>
-          <div class="d-flex gap-2">
-            <a href="https://github.com/Sian1902/go-healthy" target="_blank" class="btn btn-outline-success">
-              <i class="fab fa-github me-2"></i> View Repository
-            </a>
-            <a href="awards.html" class="btn btn-outline-danger">
-              <i class="fas fa-trophy me-2"></i> View Award
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Achievement Highlight -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-10">
-          <div class="card bg-success text-white">
-            <div class="card-body p-5 text-center">
-              <i class="fas fa-trophy fa-4x mb-4"></i>
-              <h3 class="card-title mb-3">Award-Winning Mobile Developer</h3>
-              <p class="card-text lead mb-4">Ranked 1st among 20 top mobile app projects in DEPI 2024 Mobile Development Track. Recognized for building high-impact mobile solutions with real-world applicability and presented to the Ministry of Communications and Information Technology.</p>
-              <div class="row mt-4">
-                <div class="col-md-4 mb-3">
-                  <div class="bg-white text-success p-3 rounded">
-                    <h4 class="fw-bold">20+</h4>
-                    <p>Projects</p>
-                  </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <div class="bg-white text-success p-3 rounded">
-                    <h4 class="fw-bold">1st</h4>
-                    <p>Place Rank</p>
-                  </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <div class="bg-white text-success p-3 rounded">
-                    <h4 class="fw-bold">A</h4>
-                    <p>Grade Project</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- App Screenshots Section (Placeholder) -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 section-title">App Gallery</h2>
       <div class="row g-4">
+        <!-- UI & Cross-Platform -->
         <div class="col-md-4">
-          <div class="card hover-card h-100">
-            <div class="gallery-img-wrap">
-              <img src="Go Healthy.png" class="gallery-img" alt="Go Healthy App">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="company-logo-circle bg-success text-white">
+                <i class="fab fa-android"></i>
+              </div>
+              <h5 class="fw-bold mb-0">UI & Frameworks</h5>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">Go Healthy</h5>
-              <p class="card-text">Fitness tracking app with real-time health monitoring</p>
+            <p class="text-secondary small">Modern declarative UI and cross-platform shared codebases:</p>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tech-pill tech-pill-green">Jetpack Compose</span>
+              <span class="tech-pill tech-pill-green">Compose Multiplatform (KMP)</span>
+              <span class="tech-pill tech-pill-green">Material Design 3</span>
+              <span class="tech-pill tech-pill-green">Custom Views & Canvas</span>
+              <span class="tech-pill tech-pill-green">Navigation Component</span>
+              <span class="tech-pill tech-pill-green">XML Views (Legacy)</span>
             </div>
           </div>
         </div>
+
+        <!-- Architecture & State -->
         <div class="col-md-4">
-          <div class="card hover-card h-100">
-            <div class="gallery-img-wrap">
-              <img src="LatePlate.png" class="gallery-img" alt="Late Plate App">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="company-logo-circle bg-primary text-white">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Architecture & State</h5>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">Late Plate</h5>
-              <p class="card-text">AI-powered recipe generator with personalized suggestions</p>
+            <p class="text-secondary small">Predictable state machines and decoupled maintainable layers:</p>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tech-pill tech-pill-blue">Clean Architecture</span>
+              <span class="tech-pill tech-pill-blue">MVI (Model-View-Intent)</span>
+              <span class="tech-pill tech-pill-blue">MVVM & MVP</span>
+              <span class="tech-pill tech-pill-blue">Kotlin Coroutines</span>
+              <span class="tech-pill tech-pill-blue">StateFlow & SharedFlow</span>
+              <span class="tech-pill tech-pill-blue">LiveData & RxJava</span>
+              <span class="tech-pill tech-pill-blue">Dagger/Hilt DI</span>
             </div>
           </div>
         </div>
+
+        <!-- Networking & Data -->
         <div class="col-md-4">
-          <div class="card hover-card h-100">
-            <div class="gallery-img-wrap">
-              <img src="Projects.png" class="gallery-img" alt="Mobile App">
+          <div class="card h-100 p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="company-logo-circle bg-warning text-white">
+                <i class="fas fa-database"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Data & Networking</h5>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">Mobile Projects</h5>
-              <p class="card-text">Various Android applications developed for different purposes</p>
+            <p class="text-secondary small">Offline-first caching, API integrations, and cloud sync:</p>
+            <div class="d-flex flex-wrap gap-1">
+              <span class="tech-pill tech-pill-amber">Room Database</span>
+              <span class="tech-pill tech-pill-amber">Retrofit & OkHttp</span>
+              <span class="tech-pill tech-pill-amber">GraphQL</span>
+              <span class="tech-pill tech-pill-amber">Firebase Suite</span>
+              <span class="tech-pill tech-pill-amber">Supabase</span>
+              <span class="tech-pill tech-pill-amber">Android Device Sensors</span>
+              <span class="tech-pill tech-pill-amber">WorkManager</span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Projects Showcase -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title section-title-center">Mobile & Multiplatform Projects</h2>
+        <p class="section-subtitle">Real-world applications spanning AI-assisted commerce, health tracking, and cross-platform marketplaces</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- 1. Qafilah -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/qafilah_preview.png" alt="Qafilah App" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-ai">Agentic AI & MVI</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-primary mb-1">
+                  <i class="fas fa-shopping-bag me-2"></i>Qafilah
+                </h4>
+                <span class="project-badge badge-ai">Agentic AI & MVI</span>
+              </div>
+              <p class="text-secondary mb-3">AI-powered mobile commerce platform with MVI architecture and an autonomous assistant for smart product tracking.</p>
+              
+              <ul class="project-features">
+                <li>Built native UI completely in <strong>Jetpack Compose</strong> with modern Material 3 design tokens.</li>
+                <li>Architected using <strong>MVI (Model-View-Intent)</strong> to provide a unidirectional data flow and predictable state handling.</li>
+                <li>Integrated <strong>GraphQL</strong> endpoints for precise data retrieval and low network overhead.</li>
+                <li>Integrated an autonomous agentic AI assistant capable of smart multi-attribute product search and order status tracking.</li>
+                <li>Firebase integration for real-time notifications, authentication, and telemetry.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-green">Kotlin</span>
+                <span class="tech-pill tech-pill-green">Jetpack Compose</span>
+                <span class="tech-pill tech-pill-purple">MVI Architecture</span>
+                <span class="tech-pill tech-pill-purple">GraphQL</span>
+                <span class="tech-pill tech-pill-amber">Agentic AI</span>
+                <span class="tech-pill tech-pill-blue">Firebase</span>
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="https://github.com/Sian1902/Qafilah" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom">
+                  <i class="fab fa-github me-1"></i> View Repository
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Late Plate -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="LatePlate.png" alt="Late Plate App" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-feat">Grade: A (Grad Project)</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-success mb-1">
+                  <i class="fas fa-utensils me-2"></i>Late Plate - AI Recipe Generator
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">AI-powered recipe recommendation mobile application using deep learning and NLP for personalized culinary assistance.</p>
+              
+              <ul class="project-features">
+                <li>Graduation Project at Ain Shams University (FCIS) awarded <strong>Grade: A</strong>.</li>
+                <li>Fine-tuned <strong>LLaMA 3.2</strong> and <strong>GPT-2</strong> language models on RecipeNLG dataset using custom tokenization and LoRA optimization.</li>
+                <li>Connected native Kotlin Android app with custom Python AI backend via scalable RESTful endpoints.</li>
+                <li>Designed clean ViewModel / MVVM presentation layer with caching and seamless error states.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-green">Kotlin</span>
+                <span class="tech-pill tech-pill-green">Android SDK</span>
+                <span class="tech-pill tech-pill-amber">LLaMA 3.2</span>
+                <span class="tech-pill tech-pill-blue">Python</span>
+                <span class="tech-pill tech-pill-purple">LoRA NLP</span>
+                <span class="tech-pill tech-pill-green">MVVM</span>
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="https://github.com/Late-Plate" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom">
+                  <i class="fab fa-github me-1"></i> View GitHub Organization
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Go Healthy -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="Go Healthy.png" alt="Go Healthy App" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-award"><i class="fas fa-trophy me-1"></i>1st Place Winner</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-danger mb-1">
+                  <i class="fas fa-heartbeat me-2"></i>Go Healthy - Fitness Tracker
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">Comprehensive health & fitness tracking Android app recognized nationally in the DEPI initiative.</p>
+              
+              <ul class="project-features">
+                <li><strong>Ranked 1st Place</strong> among 20 top mobile app projects in the MCIT DEPI program.</li>
+                <li>Integrated hardware accelerometer/step-counter sensors for live background step calculation.</li>
+                <li>Synchronized nutritional database with Nutritionix API for precise caloric intake calculation.</li>
+                <li>Firebase authentication, cloud Firestore data synchronization, multi-language localization, and push notifications.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-green">Kotlin</span>
+                <span class="tech-pill tech-pill-green">Android SDK</span>
+                <span class="tech-pill tech-pill-blue">Firebase</span>
+                <span class="tech-pill tech-pill-purple">Device Sensors</span>
+                <span class="tech-pill tech-pill-amber">Nutritionix API</span>
+              </div>
+
+              <div class="mt-auto pt-2 d-flex gap-2">
+                <a href="https://github.com/Sian1902/go-healthy" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom flex-grow-1">
+                  <i class="fab fa-github me-1"></i> View Repository
+                </a>
+                <a href="awards.html" class="btn btn-primary">
+                  <i class="fas fa-award me-1"></i> Award Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Wassla (Compose Multiplatform / KMP) -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/wassla_preview.png" alt="Wassla App" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-ai">KMP Multiplatform</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-info mb-1">
+                  <i class="fas fa-handshake me-2"></i>Wassla - Marketplace App
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">Cross-platform service marketplace mobile application built with Compose Multiplatform (KMP) and Supabase (Freelance project).</p>
+              
+              <ul class="project-features">
+                <li>100% shared UI codebase across platforms using <strong>Compose Multiplatform</strong>, minimizing UI drift and duplication.</li>
+                <li>Structured under <strong>Clean Architecture</strong> with separated Presentation, Domain (Use Cases), and Data (Repositories) layers.</li>
+                <li>Backed by <strong>Supabase</strong> for PostgreSQL real-time database, authentication, and secure asset storage.</li>
+                <li>Reactive state management utilizing Kotlin Coroutines and StateFlow.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-green">Compose Multiplatform</span>
+                <span class="tech-pill tech-pill-green">KMP</span>
+                <span class="tech-pill tech-pill-blue">Clean Architecture</span>
+                <span class="tech-pill tech-pill-blue">Supabase</span>
+                <span class="tech-pill tech-pill-purple">StateFlow</span>
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="contact.html" class="btn btn-outline-custom">
+                  <i class="fas fa-info-circle me-1"></i> Inquire About Architecture
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Plate Mate -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/platemate.png" alt="Plate Mate Meal Planner" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-feat">MVP & Offline-First</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-warning mb-1">
+                  <i class="fas fa-calendar-alt me-2"></i>Plate Mate - Meal Planner
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">Meal planning Android application built with MVP architecture, recipe exploration, and automated 7-day meal scheduling.</p>
+              
+              <ul class="project-features">
+                <li>Built with Java and <strong>MVP (Model-View-Presenter)</strong> architecture for clean testable presentation logic.</li>
+                <li>Integrated <strong>TheMealDB REST API</strong> for rich recipe discovery, ingredients, and preparation steps.</li>
+                <li>Implemented local <strong>Room Database</strong> caching for offline favorites and weekly meal schedules.</li>
+                <li>Firebase authentication for user profile synchronization across devices.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-blue">Java</span>
+                <span class="tech-pill tech-pill-green">Android SDK</span>
+                <span class="tech-pill tech-pill-purple">MVP Architecture</span>
+                <span class="tech-pill tech-pill-green">Room Database</span>
+                <span class="tech-pill tech-pill-blue">TheMealDB API</span>
+                <span class="tech-pill tech-pill-amber">Firebase</span>
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="https://github.com/Sian1902/plate-mate" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom">
+                  <i class="fab fa-github me-1"></i> View Repository
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Weather -->
+        <div class="col-lg-6">
+          <div class="card project-card">
+            <div class="project-img-wrapper">
+              <img src="images/weather_preview.png" alt="Weather App" class="project-img">
+              <div class="project-badge-overlay">
+                <span class="project-badge badge-feat">Clean Architecture</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h4 class="fw-bold text-primary mb-1">
+                  <i class="fas fa-cloud-sun-rain me-2"></i>Weather App
+                </h4>
+              </div>
+              <p class="text-secondary mb-3">Weather forecasting application using MVVM, Clean Architecture, APIs, Room, and StateFlow for real-time weather data and alerts.</p>
+              
+              <ul class="project-features">
+                <li>Structured with strict <strong>Clean Architecture</strong> (Data, Domain, Presentation).</li>
+                <li>Real-time weather data retrieval via REST APIs with reactive error handling.</li>
+                <li>Offline caching with <strong>Room Database</strong> and reactive updates using <strong>StateFlow</strong>.</li>
+                <li>Background weather alerts and notifications using WorkManager.</li>
+              </ul>
+
+              <div class="mb-3">
+                <span class="tech-pill tech-pill-green">Kotlin</span>
+                <span class="tech-pill tech-pill-blue">Clean Architecture</span>
+                <span class="tech-pill tech-pill-green">MVVM</span>
+                <span class="tech-pill tech-pill-green">Room DB</span>
+                <span class="tech-pill tech-pill-purple">StateFlow</span>
+                <span class="tech-pill tech-pill-amber">WorkManager</span>
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="https://github.com/Sian1902" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom">
+                  <i class="fab fa-github me-1"></i> View Profile Repos
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Track Experience with Real Logos -->
+  <section class="py-5 bg-light-custom">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title section-title-center">Mobile Journey & Roles</h2>
+        <p class="section-subtitle">Intensive training and industry internships in native mobile engineering</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          
+          <!-- ITI -->
+          <div class="card experience-card p-4">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/iti.png" alt="ITI" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Mobile Applications Development (Native) Track</h5>
+                    <p class="text-primary fw-semibold mb-0">Information Technology Institute (ITI) — Smart Village Branch</p>
+                  </div>
+                </div>
+                <span class="date-pill">Oct 2025 - Sept 2026</span>
+              </div>
+              <ul class="mb-3 text-secondary">
+                <li>Selected for ITI's highly competitive 9-Month Professional Diploma in Native Mobile Development.</li>
+                <li>Advanced immersion in Android Native (Kotlin & Java), Jetpack Compose, Compose Multiplatform (KMP), and Clean Architecture.</li>
+                <li>Building production-grade applications adhering to strict memory management, multithreading, and unit testing practices.</li>
+              </ul>
+              <div>
+                <span class="tech-pill tech-pill-green">Kotlin</span>
+                <span class="tech-pill tech-pill-green">Jetpack Compose</span>
+                <span class="tech-pill tech-pill-green">KMP</span>
+                <span class="tech-pill tech-pill-blue">Clean Architecture</span>
+                <span class="tech-pill tech-pill-purple">Testing & Profiling</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DEPI -->
+          <div class="card experience-card p-4">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/DEPI.png" alt="DEPI" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Mobile Developer Intern (1st Place Winner)</h5>
+                    <p class="text-primary fw-semibold mb-0">Digital Egypt Pioneers Initiative (DEPI) — MCIT</p>
+                  </div>
+                </div>
+                <span class="date-pill">Jun 2024 - Dec 2024</span>
+              </div>
+              <ul class="mb-3 text-secondary">
+                <li>Built Android applications end-to-end focusing on responsive UI, performance optimization, and API integration.</li>
+                <li>Collaborated on real-world mobile solutions as part of a national initiative sponsored by the Ministry of Communications and IT.</li>
+                <li><strong>Awarded 1st Place</strong> among 20 top mobile projects in the final initiative exhibition.</li>
+              </ul>
+              <div>
+                <span class="tech-pill tech-pill-green">Kotlin</span>
+                <span class="tech-pill tech-pill-green">Android SDK</span>
+                <span class="tech-pill tech-pill-blue">Firebase</span>
+                <span class="tech-pill tech-pill-amber">1st Place DEPI</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DEMI - iSchool -->
+          <div class="card experience-card p-4">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img src="images/iSchool.png" alt="iSchool" class="company-logo-img">
+                  <div>
+                    <h5 class="fw-bold mb-1">Instructor</h5>
+                    <p class="text-primary fw-semibold mb-0">DEMI – iSchool</p>
+                  </div>
+                </div>
+                <span class="date-pill">Jun 2024 - Aug 2024</span>
+              </div>
+              <ul class="mb-3 text-secondary">
+                <li>Taught computer science fundamentals and guided students (ages 10–12) in building interactive mobile applications using Code.org.</li>
+                <li>Delivered engaging curriculum combining algorithmic thinking with visual development.</li>
+              </ul>
+              <div>
+                <span class="tech-pill tech-pill-blue">Computer Science</span>
+                <span class="tech-pill tech-pill-purple">Teaching</span>
+                <span class="tech-pill tech-pill-green">Mobile App Basics</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-5">
+  <footer class="text-center">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h4 class="mb-4">Let's Create Amazing Mobile Experiences</h4>
-          <p class="mb-4">I specialize in building high-performance Android applications with modern architecture and best practices.</p>
-          <a href="contact.html" class="btn btn-success btn-lg">
-            <i class="fas fa-paper-plane me-2"></i>Start a Project
-          </a>
-          <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
-            <a href="index.html" class="btn btn-outline-light">Home</a>
-            <a href="backend.html" class="btn btn-outline-light">Backend Dev</a>
-            <a href="gamedev.html" class="btn btn-outline-light">Game Dev</a>
+          <h4 class="mb-3">Looking for a High-Caliber Android Developer?</h4>
+          <p class="mb-4">
+            I build performant native Android and Compose Multiplatform apps with clean architectures and tested workflows.
+          </p>
+          <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+            <a href="Ahmed_Haitham_CV.pdf" target="_blank" download="Ahmed_Haitham_CV.pdf" class="btn btn-gradient-cv">
+              <i class="fas fa-file-pdf me-1"></i> Download CV (PDF)
+            </a>
+            <a href="contact.html" class="btn btn-primary">
+              <i class="fas fa-paper-plane me-1"></i> Contact Me
+            </a>
+            <a href="index.html" class="btn btn-outline-custom footer-btn">
+              <i class="fas fa-home me-1"></i> Back Home
+            </a>
           </div>
-          <p class="mt-4 mb-0">&copy; 2025 Ahmed Haitham Elsersy. All rights reserved.</p>
+          <p class="small text-muted mb-0">
+            &copy; 2026 Ahmed Haitham Elsersy. All rights reserved.
+          </p>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top">
+  <button class="back-to-top" aria-label="Back to Top">
     <i class="fas fa-arrow-up"></i>
   </button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Page Loader
     window.addEventListener('load', function() {
       const loader = document.querySelector('.page-loader');
-      loader.style.opacity = '0';
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 300);
-    });
-
-    // Back to Top Button
-    const backToTopButton = document.querySelector('.back-to-top');
-    
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('show');
-      } else {
-        backToTopButton.classList.remove('show');
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => { loader.style.display = 'none'; }, 350);
       }
     });
 
-    backToTopButton.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+    function updateThemeUI(theme) {
+      const icon = document.querySelector('.theme-icon');
+      const label = document.querySelector('.theme-label');
+      if (theme === 'dark') {
+        if (icon) icon.textContent = '🌙';
+        if (label) label.textContent = 'Dark';
       } else {
-        navbar.classList.remove('scrolled');
+        if (icon) icon.textContent = '☀️';
+        if (label) label.textContent = 'Light';
       }
-    });
-
-    // Active navigation highlighting
-    const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-      const linkHref = link.getAttribute('href');
-      if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-
-    // Animate elements on scroll
-    const animateOnScroll = function() {
-      const elements = document.querySelectorAll('.fade-in');
-      
-      elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (elementPosition < screenPosition) {
-          element.style.opacity = '1';
-          element.style.transform = 'translateY(0)';
-        }
-      });
-    };
-
-    // Set initial state
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Initial check
-
-    // Animate progress bars
-    function animateProgressBars() {
-      const progressBars = document.querySelectorAll('.progress-bar');
-      progressBars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 300);
-      });
     }
 
-    // Trigger progress bar animation when they come into view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateProgressBars();
-        }
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      updateThemeUI(currentTheme);
+
+      const backBtn = document.querySelector('.back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) backBtn.classList.add('show');
+        else backBtn.classList.remove('show');
       });
-    }, { threshold: 0.5 });
-
-    const progressSection = document.querySelector('.bg-light:last-of-type');
-    if (progressSection) {
-      observer.observe(progressSection);
-    }
-
-    // ── Dark Mode ─────────────────────────────────────────────
-    (function() {
-      // Apply saved preference immediately to avoid flash
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (saved === 'dark' || (!saved && prefersDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const html = document.documentElement;
-        const isDark = html.getAttribute('data-theme') === 'dark';
-        html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
-    }
 
-    // Sync with OS preference changes (when no manual override)
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (!localStorage.getItem('theme')) {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      const navbar = document.querySelector('.navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      });
+
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const html = document.documentElement;
+          const isDark = html.getAttribute('data-theme') === 'dark';
+          const next = isDark ? 'light' : 'dark';
+          html.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          updateThemeUI(next);
+        });
       }
     });
   </script>
